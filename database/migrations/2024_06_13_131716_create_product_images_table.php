@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('dealer_groups', function (Blueprint $table) {
+        Schema::create('product_images', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->decimal('discount', 8, 2)->nullable()->default(0);
+            $table->integer('product_id')->constrained('products')->onDelete('cascade');
+            $table->string('image_path');
             $table->timestamps();
         });
     }
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('dealer_groups');
+        Schema::dropIfExists('product_images');
     }
 };

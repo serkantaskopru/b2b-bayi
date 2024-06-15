@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Log;
 
 class User extends Authenticatable
 {
@@ -43,5 +44,18 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function dealer(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(Dealer::class, 'user_id');
+    }
+
+    public function printDealerStatusBadge(): string
+    {
+        if(empty($this->dealer))
+            return '<span class="badge badge-danger">Bayi Tanımlı Değil</span>';
+
+        return '<span class="badge badge-success">'. $this->dealer->name ?? '#' .'</span>';
     }
 }

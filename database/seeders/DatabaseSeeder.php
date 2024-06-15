@@ -7,6 +7,7 @@ use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,11 +21,13 @@ class DatabaseSeeder extends Seeder
             'name' => 'Tenant 1',
             'domain' => 'tenant1.laravel.test',
             'database' => 'tenant1_database',
+            'uid' => Str::random(16)
         ]);
         Tenant::create([
             'name' => 'Tenant 2',
             'domain' => 'tenant2.laravel.test',
             'database' => 'tenant2_database',
+            'uid' => Str::random(16)
         ]);
         User::factory()->create([
             'name' => 'Test User',

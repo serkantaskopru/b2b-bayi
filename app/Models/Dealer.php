@@ -11,7 +11,7 @@ class Dealer extends Model
 
     protected $fillable = [
         'user_id',
-        'group_id',
+        'dealer_group_id',
         'name',
         'payment_date',
         'tax_office',
@@ -22,6 +22,7 @@ class Dealer extends Model
         'address',
         'email',
         'status',
+        'phone',
     ];
 
     public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -31,7 +32,7 @@ class Dealer extends Model
 
     public function group(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
-        return $this->belongsTo(DealerGroup::class, 'group_id');
+        return $this->belongsTo(DealerGroup::class, 'dealer_group_id');
     }
 
     public function orders(): \Illuminate\Database\Eloquent\Relations\HasMany

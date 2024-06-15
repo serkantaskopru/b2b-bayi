@@ -16,40 +16,52 @@ function initAjaxFormListener(){
             contentType: false,
             processData: false,
         }).done(function (msg) {
-            unblockPage()
-            if (msg.code == 88 || msg.code == 1) {
-                try{
-                    $('.dropzone-add').attr('data-parent',msg.parent_id);
+            unblockPage();
+            if (msg.code === 88 || msg.code === 1) {
+                try {
+                    $('.dropzone-add').attr('data-parent', msg.parent_id);
                     setTimeout(function(){
                         _dropzone.processQueue();
-                    },250)
-                }catch (exception){console.error(exception)}
-
+                    }, 250);
+                } catch (exception) {
+                    console.error(exception);
+                }
             }
-            if (msg.code == 88) {
-                Notification('success', msg.message, 4000, true, false)
+            if (msg.code === 88) {
+                Notification('success', msg.message, 4000, true, false);
                 setTimeout(function () {
                     window.location.reload();
                 }, 500);
                 return;
             }
-            msg.code == 1 || msg.code == 88 ? Notification('success', msg.message, 4000, true, false) : Notification('error', msg.message, 4000, true, false);
+            msg.code === 1 || msg.code === 88 ? Notification('success', msg.message, 4000, true, false) : Notification('error', msg.message, 4000, true, false);
         }).fail(function (jqXHR) {
-            unblockPage()
-            if(jqXHR.status == 403){
+            unblockPage();
+            if (jqXHR.status === 403) {
                 Notification('error', "Bu işlem için yetkiniz bulunmamaktadır.", 4000, true, false);
                 return false;
             }
-            if (jqXHR.responseJSON.msg != null) {
-                Notification('error', jqXHR.responseJSON.msg, 4000, true, false);
+            // Laravel'den dönen hata mesajlarını toast ile göster
+            if (jqXHR.responseJSON) {
+                if (jqXHR.responseJSON.msg) {
+                    Notification('error', jqXHR.responseJSON.msg, 4000, true, false);
+                } else if (jqXHR.responseJSON.errors) {
+                    // Çoklu hata mesajlarını işleme
+                    var errors = jqXHR.responseJSON.errors;
+                    $.each(errors, function(key, value) {
+                        Notification('error', value[0], 4000, true, false); // İlk hatayı gösteriyoruz
+                    });
+                } else {
+                    Notification('error', jqXHR.responseJSON.message, 4000, true, false);
+                }
             } else {
-                Notification('error', jqXHR.responseJSON.message, 4000, true, false);
+                Notification('error', "Bilinmeyen bir hata oluştu.", 4000, true, false);
             }
-
         });
         return false;
-    })
+    });
 }
+
 document.addEventListener("DOMContentLoaded", function () {
     initAjaxFormListener();
 });
@@ -66,10 +78,10 @@ function ajaxProcess(url, type = 'get', reload = false) {
         processData: false,
     }).done(function (msg) {
         unblockPage()
-        if (msg.code == 1) {
+        if (msg.code === 1) {
             Notification('success', msg.message, 4000, true, false);
         } else {
-            if (msg.code == 88) {
+            if (msg.code === 88) {
                 Notification('info', msg.message, 4000, true, false);
                 setTimeout(function () {
                     window.location.reload();
@@ -78,14 +90,14 @@ function ajaxProcess(url, type = 'get', reload = false) {
                 Notification('error', msg.message, 4000, true, false);
             }
         }
-        if (reload == true) {
+        if (reload === true) {
             setTimeout(function () {
                 window.location.reload();
             }, 500);
         }
     }).fail(function (jqXHR, textStatus) {
         unblockPage();
-        if(jqXHR.status == 403){
+        if(jqXHR.status === 403){
             Notification('error', "Bu işlem için yetkiniz bulunmamaktadır.", 4000, true, false);
             return false;
         }
@@ -123,10 +135,10 @@ function approveAjax(url, type = 'get', reload = false) {
                 processData: false,
             }).done(function (msg) {
                 unblockPage()
-                if (msg.code == 1) {
+                if (msg.code === 1) {
                     Notification('success', msg.message, 4000, true, false);
                 } else {
-                    if (msg.code == 88) {
+                    if (msg.code === 88) {
                         Notification('info', msg.message, 4000, true, false);
                         setTimeout(function () {
                             window.location.reload();
@@ -135,14 +147,14 @@ function approveAjax(url, type = 'get', reload = false) {
                         Notification('error', msg.message, 4000, true, false);
                     }
                 }
-                if (reload == true) {
+                if (reload === true) {
                     setTimeout(function () {
                         window.location.reload();
                     }, 500);
                 }
             }).fail(function (jqXHR, textStatus) {
                 unblockPage();
-                if(jqXHR.status == 403){
+                if(jqXHR.status === 403){
                     Notification('error', "Bu işlem için yetkiniz bulunmamaktadır.", 4000, true, false);
                     return false;
                 }
@@ -171,9 +183,9 @@ function reloadAjaxListener(){
             processData: false,
         }).done(function (msg) {
             unblockPage();
-            if (msg.code == 1) {
+            if (msg.code === 1) {
                 Notification('success', msg.message)
-            } else if (msg.code == 88) {
+            } else if (msg.code === 88) {
                 Notification('info', msg.message)
                 setTimeout(function () {
                     window.location.reload();

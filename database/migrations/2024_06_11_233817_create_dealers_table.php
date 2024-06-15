@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('dealers', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->constrained('users')->onDelete('cascade');
-            $table->integer('group_id')->constrained('dealer_groups')->onDelete('cascade');
+            $table->integer('dealer_group_id')->constrained('dealer_groups')->onDelete('cascade');
             $table->string('name', 128);
             $table->date('payment_date')->nullable();
             $table->string('tax_office')->nullable();
@@ -24,6 +24,7 @@ return new class extends Migration
             $table->mediumText('notes')->nullable();
             $table->text('address')->nullable();
             $table->string('email', 128)->nullable();
+            $table->string('phone', 16)->nullable();
             $table->tinyInteger('status')->nullable();
             $table->timestamps();
         });

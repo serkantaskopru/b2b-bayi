@@ -9,5 +9,5 @@ class Tenant extends Model
 {
     use UsesTenantConnection;
 
-    protected $fillable = ['name', 'domain', 'database'];
+    protected $fillable = ['name', 'domain', 'database', 'uid'];
 }

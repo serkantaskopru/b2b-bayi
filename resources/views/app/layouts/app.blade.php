@@ -18,10 +18,11 @@
     <link href="/manage/plugins/custom/vis-timeline/vis-timeline.bundle.css" rel="stylesheet" type="text/css"/>
     <!--end::Vendor Stylesheets-->
 
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.9.2/jquery.contextMenu.min.css"/>
     <!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
     <link href="/manage/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css"/>
     <link href="/manage/css/style.bundle.css" rel="stylesheet" type="text/css"/>
+    <link href="/manage/css/custom.css" rel="stylesheet" type="text/css"/>
     <!--end::Global Stylesheets Bundle-->
     @stack('style')
 </head>
@@ -2053,7 +2054,7 @@
 <script src="/manage/plugins/custom/datatables/datatables.bundle.js"></script>
 <script src="/manage/plugins/custom/vis-timeline/vis-timeline.bundle.js"></script>
 <!--end::Vendors Javascript-->
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.9.2/jquery.contextMenu.min.js"></script>
 <!--begin::Custom Javascript(used for this page only)-->
 <script src="/manage/js/widgets.bundle.js"></script>
 <script src="/manage/js/custom/widgets.js"></script>

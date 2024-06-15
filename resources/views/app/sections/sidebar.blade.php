@@ -14,7 +14,7 @@
             class="hover-scroll-y"
             data-kt-scroll="false"
             data-kt-scroll-height="auto"
-            data-kt-scroll-dependencies="#kt_app_sidebar_header, #kt_app_sidebar_footer"
+            data-kt-scroll-dependencies="#kt_app_sidebar_header"
             data-kt-scroll-offset="20px"
         >
             <div class="app-sidebar-navs-default px-5 mb-10">
@@ -22,13 +22,13 @@
                      class="menu menu-column menu-rounded menu-sub-indention">
                     <div class="menu-item pb-0 pt-0">
                         <div class="menu-content">
-                            <span class="menu-heading">Yönetim</span>
+                            <span class="menu-heading">{{app('currentTenant')->name ?? '#unknownTenant'}}</span>
                         </div>
                     </div>
                     <div class="separator mb-4 mx-4">
                     </div>
                     <div class="menu-item {{ Request::routeIs('tenant.dashboard') ? 'here show' : '' }}">
-                        <a class="menu-link  {{ Request::routeIs('tenant.dashboard') ? 'active' : '' }}"
+                        <a class="menu-link {{ Request::routeIs('tenant.dashboard') ? 'active' : '' }}"
                            href="{{route('tenant.dashboard')}}">
 								<span
                                     class="menu-bullet">
@@ -51,9 +51,9 @@
                                 class="menu-title">Sipariş Oluştur</span>
                         </a>
                     </div>
-                    <div class="menu-item">
-                        <a class="menu-link"
-                           href="#">
+                    <div class="menu-item {{ Request::routeIs('tenant.product.*') ? 'here show' : '' }}">
+                        <a class="menu-link {{ Request::routeIs('tenant.product.*') ? 'active' : '' }}"
+                           href="{{route('tenant.product.index')}}">
 								<span
                                     class="menu-bullet">
 									<span class="bullet bullet-dot">
@@ -63,9 +63,9 @@
                                 class="menu-title">Ürünler</span>
                         </a>
                     </div>
-                    <div class="menu-item">
-                        <a class="menu-link"
-                           href="#">
+                    <div class="menu-item {{ Request::routeIs('tenant.product_category.*') ? 'here show' : '' }}">
+                        <a class="menu-link {{ Request::routeIs('tenant.product_category.*') ? 'active' : '' }}"
+                           href="{{route('tenant.product_category.index')}}">
 								<span
                                     class="menu-bullet">
 									<span class="bullet bullet-dot">
@@ -87,9 +87,9 @@
                                 class="menu-title">Kuponlar</span>
                         </a>
                     </div>
-                    <div class="menu-item">
-                        <a class="menu-link"
-                           href="#">
+                    <div class="menu-item {{ Request::routeIs('tenant.dealer.*') ? 'here show' : '' }}">
+                        <a class="menu-link {{ Request::routeIs('tenant.dealer.*') ? 'active' : '' }}"
+                           href="{{route('tenant.dealer.index')}}">
 								<span
                                     class="menu-bullet">
 									<span class="bullet bullet-dot">
@@ -97,6 +97,18 @@
 								</span>
                             <span
                                 class="menu-title">Bayi Listesi</span>
+                        </a>
+                    </div>
+                    <div class="menu-item {{ Request::routeIs('tenant.dealer_group.*') ? 'here show' : '' }}">
+                        <a class="menu-link {{ Request::routeIs('tenant.dealer_group.*') ? 'active' : '' }}"
+                           href="{{route('tenant.dealer_group.index')}}">
+								<span
+                                    class="menu-bullet">
+									<span class="bullet bullet-dot">
+									</span>
+								</span>
+                            <span
+                                class="menu-title">Bayi Grupları</span>
                         </a>
                     </div>
                     <div class="menu-item">
@@ -109,18 +121,6 @@
 								</span>
                             <span
                                 class="menu-title">Bayi Başvuruları</span>
-                        </a>
-                    </div>
-                    <div class="menu-item">
-                        <a class="menu-link"
-                           href="#">
-								<span
-                                    class="menu-bullet">
-									<span class="bullet bullet-dot">
-									</span>
-								</span>
-                            <span
-                                class="menu-title">Bayi Grupları</span>
                         </a>
                     </div>
                     <div class="menu-item">
@@ -176,6 +176,7 @@
         </div>
     </div>
 </div>
+{{--
 <div class="d-flex flex-stack px-10 px-lg-15 pb-8" id="kt_app_sidebar_footer">
 	<span class="d-flex flex-center gap-1 text-white theme-light-show fs-5 px-0">
 		<i class="ki-outline ki-night-day text-gray-500 fs-2">
@@ -192,3 +193,4 @@
         </div>
     </div>
 </div>
+--}}

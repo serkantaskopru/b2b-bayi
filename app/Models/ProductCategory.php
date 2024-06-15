@@ -5,17 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class DealerGroup extends Model
+class ProductCategory extends Model
 {
     use HasFactory;
 
     protected $fillable = [
       'name',
-      'discount'
+      'code'
     ];
 
-    public function dealers(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function products(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
-        return $this->hasMany(Dealer::class, 'dealer_group_id');
+        return $this->belongsToMany(Product::class, 'category_products');
     }
 }

@@ -68,7 +68,7 @@ $(function() {
             },
             deferRender: true,
             columns: datatables_conf.columns,
-            select: true,
+            select: datatables_conf.select ?? true,
             columnDefs: datatables_conf.columnDefs,
             order: datatables_conf.order,
             aaSorting: [],

@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('dealer_groups', function (Blueprint $table) {
+        Schema::create('category_products', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->decimal('discount', 8, 2)->nullable()->default(0);
+            $table->foreignId('product_id')->constrained()->onDelete('cascade');
+            $table->foreignId('product_category_id')->constrained('product_categories')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('dealer_groups');
+        Schema::dropIfExists('category_products');
     }
 };
