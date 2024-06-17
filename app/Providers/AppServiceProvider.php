@@ -5,12 +5,14 @@ namespace App\Providers;
 use App\Interfaces\DealerGroupRepositoryInterface;
 use App\Interfaces\DealerRepositoryInterface;
 use App\Interfaces\ImageServiceInterface;
+use App\Interfaces\PersonnelRepositoryInterface;
 use App\Interfaces\ProductCategoryRepositoryInterface;
 use App\Interfaces\ProductImageRepositoryInterface;
 use App\Interfaces\ProductRepositoryInterface;
 use App\Services\DealerGroupService;
 use App\Services\DealerService;
 use App\Services\ImageService;
+use App\Services\PersonnelService;
 use App\Services\ProductCategoryService;
 use App\Services\ProductImageService;
 use App\Services\ProductService;
@@ -29,6 +31,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(ProductCategoryRepositoryInterface::class, ProductCategoryService::class);
         $this->app->bind(DealerRepositoryInterface::class, DealerService::class);
         $this->app->bind(DealerGroupRepositoryInterface::class, DealerGroupService::class);
+        $this->app->bind(PersonnelRepositoryInterface::class, PersonnelService::class);
         $this->app->singleton(ImageServiceInterface::class, ImageService::class);
     }
 

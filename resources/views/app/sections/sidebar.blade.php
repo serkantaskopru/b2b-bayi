@@ -39,9 +39,9 @@
                                 class="menu-title">Anasayfa</span>
                         </a>
                     </div>
-                    <div class="menu-item">
-                        <a class="menu-link"
-                           href="#">
+                    <div class="menu-item {{ Request::routeIs('tenant.product.product_list') ? 'here show' : '' }}">
+                        <a class="menu-link {{ Request::routeIs('tenant.product.product_list') ? 'active' : '' }}"
+                           href="{{route('tenant.product.product_list')}}">
 								<span
                                     class="menu-bullet">
 									<span class="bullet bullet-dot">
@@ -51,8 +51,8 @@
                                 class="menu-title">Sipariş Oluştur</span>
                         </a>
                     </div>
-                    <div class="menu-item {{ Request::routeIs('tenant.product.*') ? 'here show' : '' }}">
-                        <a class="menu-link {{ Request::routeIs('tenant.product.*') ? 'active' : '' }}"
+                    <div class="menu-item {{ Request::routeIs('tenant.product.*') && !Request::routeIs('tenant.product.product_list') ? 'here show' : '' }}">
+                        <a class="menu-link {{ Request::routeIs('tenant.product.*') && !Request::routeIs('tenant.product.product_list') ? 'active' : '' }}"
                            href="{{route('tenant.product.index')}}">
 								<span
                                     class="menu-bullet">
@@ -123,16 +123,15 @@
                                 class="menu-title">Bayi Başvuruları</span>
                         </a>
                     </div>
-                    <div class="menu-item">
-                        <a class="menu-link"
-                           href="#">
+                    <div class="menu-item {{ Request::routeIs('tenant.personnel.*') ? 'here show' : '' }}">
+                        <a class="menu-link {{ Request::routeIs('tenant.personnel.*') ? 'active' : '' }}"
+                           href="{{route('tenant.personnel.index')}}">
 								<span
                                     class="menu-bullet">
 									<span class="bullet bullet-dot">
 									</span>
 								</span>
-                            <span
-                                class="menu-title">Personeller</span>
+                            <span class="menu-title">Personeller</span>
                         </a>
                     </div>
                     <div class="menu-item">

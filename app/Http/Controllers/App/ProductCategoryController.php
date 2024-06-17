@@ -4,7 +4,7 @@ namespace App\Http\Controllers\App;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\App\ProductCategory\CreateProductCategoryRequest;
-use App\Http\Requests\App\ProductCategory\UpdateDealerRequest;
+use App\Http\Requests\App\ProductCategory\UpdateProductCategoryRequest;
 use App\Interfaces\ProductCategoryRepositoryInterface;
 
 class ProductCategoryController extends Controller
@@ -55,7 +55,7 @@ class ProductCategoryController extends Controller
         return response()->json(['code' => 4, 'message' => __('Kategori eklenemedi, bir hata oluştu')], 500, [], JSON_UNESCAPED_UNICODE);
     }
 
-    public function update(UpdateDealerRequest $request, $id): \Illuminate\Http\JsonResponse
+    public function update(UpdateProductCategoryRequest $request, $id): \Illuminate\Http\JsonResponse
     {
         $category = $this->productCategoryService->updateProductCategory($id, $request->validated());
 

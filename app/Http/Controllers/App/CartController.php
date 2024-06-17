@@ -7,7 +7,7 @@ use App\Http\Requests\App\DealerGroup\CreateDealerGroupRequest;
 use App\Http\Requests\App\DealerGroup\UpdateDealerGroupRequest;
 use App\Interfaces\DealerGroupRepositoryInterface;
 
-class DealerGroupController extends Controller
+class CartController extends Controller
 {
     protected DealerGroupRepositoryInterface $dealerGroupService;
     public function __construct(DealerGroupRepositoryInterface $dealerGroupService)

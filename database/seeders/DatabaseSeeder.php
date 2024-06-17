@@ -8,6 +8,8 @@ use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class DatabaseSeeder extends Seeder
 {
@@ -29,10 +31,16 @@ class DatabaseSeeder extends Seeder
             'database' => 'tenant2_database',
             'uid' => Str::random(16)
         ]);
-        User::factory()->create([
+        $user = User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
 
+        $role = Role::create(['name' => 'Administrator']);
+        $permission = Permission::create(['name' => 'manage settings']);
+        $role->givePermissionTo($permission);
+        $permission->assignRole($role);
+
+        $user->assignRole($role);
     }
 }

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\App;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\App\Product\UpdateProductCategoryRequest;
+use App\Http\Requests\App\Product\UpdateProductRequest;
 use App\Interfaces\ImageServiceInterface;
 use App\Interfaces\ProductImageRepositoryInterface;
 use App\Models\ProductCategory;
@@ -21,6 +21,13 @@ class ProductController extends Controller
         $this->productService = $productService;
         $this->imageService = $imageService;
         $this->productImageService = $productImageService;
+    }
+
+    public function productList(Request $request): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+    {
+        $products = $this->productService->getAllProducts();
+        $categories = ProductCategory::all();
+        return view('app.pages.product.list',['products' => $products, 'categories' => $categories]);
     }
 
     public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
@@ -55,7 +62,7 @@ class ProductController extends Controller
         return response()->json($product, 201);
     }
 
-    public function update(UpdateProductCategoryRequest $request, $id): \Illuminate\Http\JsonResponse
+    public function update(UpdateProductRequest $request, $id): \Illuminate\Http\JsonResponse
     {
         $image = $request->file('image');
 

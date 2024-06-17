@@ -77,11 +77,12 @@
                                                            required="" value="{{$product->sell_price ?? $product->sell_price}}">
                                                 </div>
                                             </div>
+
                                             <div class="col-md-6">
                                                 <div class="form-group mb-5">
-                                                    <label for="desi">Desi</label>
-                                                    <input type="text" id="desi" class="form-control decimal"
-                                                           name="desi" value="{{$product->desi}}">
+                                                    <label for="tax_rate">Kdv Oranı</label>
+                                                    <input type="text" id="tax_rate" class="form-control decimal"
+                                                           name="tax_rate" value="{{$product->tax_rate}}">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -95,6 +96,13 @@
                                                             </label>
                                                         </div>
                                                     </fieldset>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group mb-5">
+                                                    <label for="desi">Desi</label>
+                                                    <input type="text" id="desi" class="form-control decimal"
+                                                           name="desi" value="{{$product->desi}}">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">

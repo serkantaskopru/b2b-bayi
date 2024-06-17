@@ -39,4 +39,10 @@ class Dealer extends Model
     {
         return $this->hasMany(Order::class);
     }
+
+    public function getDiscountPercentage(): int{
+        if(!empty($this->group))
+            return (int)$this->group->discount;
+        return 0;
+    }
 }

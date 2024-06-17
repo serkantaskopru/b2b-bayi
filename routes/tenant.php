@@ -3,6 +3,7 @@
 use App\Http\Controllers\App\DashboardController;
 use App\Http\Controllers\App\DealerController;
 use App\Http\Controllers\App\DealerGroupController;
+use App\Http\Controllers\App\PersonnelController;
 use App\Http\Controllers\App\ProductCategoryController;
 use App\Http\Controllers\App\ProductController;
 use App\Models\User;
@@ -48,6 +49,7 @@ Route::group(['middleware' => ['tenant', 'tenant_session', 'auth']], function ()
     Route::group(['prefix' => 'product'],function (){
         Route::get('/',[ProductController::class,'index'])->name('product.index');
         Route::get('/fetch',[ProductController::class,'fetch'])->name('product.fetch');
+        Route::get('/product-ist',[ProductController::class,'productList'])->name('product.product_list');
         Route::get('/show/{id}',[ProductController::class,'show'])->name('product.show');
         Route::get('/destroy/{id}',[ProductController::class,'destroy'])->name('product.destroy');
         Route::get('/destroy-product-image/{id}',[ProductController::class,'destroyProductImage'])->name('product.destroy_product_image');
@@ -82,5 +84,15 @@ Route::group(['middleware' => ['tenant', 'tenant_session', 'auth']], function ()
         Route::get('/destroy/{id}',[DealerGroupController::class,'destroy'])->name('dealer_group.destroy');
         Route::post('/store',[DealerGroupController::class,'store'])->name('dealer_group.store');
         Route::post('/update/{id}',[DealerGroupController::class,'update'])->name('dealer_group.update');
+    });
+
+    Route::group(['prefix' => 'personnel'],function (){
+        Route::get('/',[PersonnelController::class,'index'])->name('personnel.index');
+        Route::get('/add',[PersonnelController::class,'add'])->name('personnel.add');
+        Route::get('/fetch',[PersonnelController::class,'fetch'])->name('personnel.fetch');
+        Route::get('/show/{id}',[PersonnelController::class,'show'])->name('personnel.show');
+        Route::get('/destroy/{id}',[PersonnelController::class,'destroy'])->name('personnel.destroy');
+        Route::post('/store',[PersonnelController::class,'store'])->name('personnel.store');
+        Route::post('/update/{id}',[PersonnelController::class,'update'])->name('personnel.update');
     });
 });

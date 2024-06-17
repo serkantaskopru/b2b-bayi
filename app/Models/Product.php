@@ -46,16 +46,41 @@ class Product extends Model
         return $this->belongsToMany(ProductCategory::class, 'category_products');
     }
 
-    public function getPrice(): float|int
-    {
-        if($this->tax_include)
-            return $this->price;
-
-        return $this->price * (100 / $this->tax_rate);
-    }
-
     public function getImage(): string
     {
         return '/storage/' . $this->image;
+    }
+
+    public function getPrice(): float|int|null
+    {
+        $price = $this->price;
+        $price += $this->getTax();
+        $price -= $this->getDiscount();
+        return $price;
+    }
+
+    public function getTaxRate(): int
+    {
+        return $this->tax_rate;
+    }
+
+    public function getTax(): float|int
+    {
+        if($this->tax_include){
+            return 0;
+        }
+        return $this->price * ($this->tax_rate / 100);
+    }
+
+    public function getDiscount(): float|int
+    {
+        $user = auth()->user();
+        if(!empty($user->dealer)){
+            $discountPercentage = $user->dealer->getDiscountPercentage();
+            if($discountPercentage > 0){
+                return $this->price * ($discountPercentage / 100);
+            }
+        }
+        return 0;
     }
 }
