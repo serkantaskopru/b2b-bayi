@@ -9,8 +9,8 @@ class SwitchTenantDatabaseTask extends SpatieSwitchTenantDatabaseTask
 {
     protected function setTenantConnectionDatabaseName(?string $databaseName)
     {
-        Log::alert("Tenant Database: ");
-        Log::alert($databaseName);
+        /*Log::alert("Tenant Database: ");
+        Log::alert($databaseName);*/
         parent::setTenantConnectionDatabaseName($databaseName);
 
         $tenantConnectionName = is_null($databaseName)

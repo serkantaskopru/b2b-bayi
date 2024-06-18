@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // User::factory(10)->create();
-        Tenant::create([
+        /*Tenant::create([
             'name' => 'Tenant 1',
             'domain' => 'tenant1.laravel.test',
             'database' => 'tenant1_database',
@@ -41,6 +41,11 @@ class DatabaseSeeder extends Seeder
         $role->givePermissionTo($permission);
         $permission->assignRole($role);
 
-        $user->assignRole($role);
+        $user->assignRole($role);*/
+        $this->call(\Epigra\TrGeoZones\Database\Seeders\TrGeoZonesDatabaseSeeder::class);
+        /*$this->call(Epigra\TrGeoZones\Database\Seeders\GeozoneCitiesTableSeeder::class);
+        $this->call(Epigra\TrGeoZones\Database\Seeders\GeozoneCountiesTableSeeder::class);
+        $this->call(Epigra\TrGeoZones\Database\Seeders\GeozoneDistrictsTableSeeder::class);
+        $this->call(Epigra\TrGeoZones\Database\Seeders\GeozoneNeighbourhoodsTableSeeder::class);*/
     }
 }

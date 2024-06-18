@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\App\BasketController;
 use App\Http\Controllers\App\DashboardController;
 use App\Http\Controllers\App\DealerController;
 use App\Http\Controllers\App\DealerGroupController;
+use App\Http\Controllers\App\GeozoneController;
 use App\Http\Controllers\App\PersonnelController;
 use App\Http\Controllers\App\ProductCategoryController;
 use App\Http\Controllers\App\ProductController;
@@ -94,5 +96,19 @@ Route::group(['middleware' => ['tenant', 'tenant_session', 'auth']], function ()
         Route::get('/destroy/{id}',[PersonnelController::class,'destroy'])->name('personnel.destroy');
         Route::post('/store',[PersonnelController::class,'store'])->name('personnel.store');
         Route::post('/update/{id}',[PersonnelController::class,'update'])->name('personnel.update');
+    });
+
+    Route::group(['prefix' => 'basket'],function (){
+        Route::get('/',[BasketController::class,'view'])->name('basket.view');
+        Route::get('/add/{id}',[BasketController::class,'add'])->name('basket.add');
+        Route::get('/destroy/{id}',[BasketController::class,'destroy'])->name('basket.destroy');
+        Route::post('/add-to-basket',[BasketController::class,'addToBasket'])->name('basket.add_to_basket');
+    });
+
+    Route::group(['prefix' => 'geozone'],function (){
+        Route::get('/get-cities',[GeozoneController::class,'getCities'])->name('geozone.cities');
+        Route::get('/get-counties',[GeozoneController::class,'getCounties'])->name('geozone.counties');
+        Route::get('/get-districts',[GeozoneController::class,'getDistricts'])->name('geozone.districts');
+        Route::get('/get-neighbourhoods',[GeozoneController::class,'getNeighbourhoods'])->name('geozone.neighbourhoods');
     });
 });

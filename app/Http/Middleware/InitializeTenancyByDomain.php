@@ -26,8 +26,8 @@ class InitializeTenancyByDomain
             Auth::shouldUse('tenant');
 
             $db = DB::getDatabaseName();
-            Log::alert($hostname);
-            Log::alert($db);
+            /*Log::alert($hostname);
+            Log::alert($db);*/
             /*$tenant = Tenant::where('domain', $hostname)->firstOrFail();
 
             if($tenant){

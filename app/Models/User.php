@@ -51,6 +51,11 @@ class User extends Authenticatable
         return $this->hasOne(Dealer::class, 'user_id');
     }
 
+    public function basket(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(Basket::class);
+    }
+
     public function printDealerStatusBadge(): string
     {
         if(empty($this->dealer))
@@ -58,4 +63,5 @@ class User extends Authenticatable
 
         return '<span class="badge badge-success">'. $this->dealer->name ?? '#' .'</span>';
     }
+
 }

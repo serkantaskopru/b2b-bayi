@@ -36,13 +36,13 @@ let datatables_language_tr={
 };
 $(function() {
     let datatable_obj
-    if (datatables_conf != null) {
+    if (typeof datatables_conf !== 'undefined' && datatables_conf != null) {
 
 
         $('#' + datatables_conf.table_id + ' thead tr').clone(true).appendTo('#' + datatables_conf.table_id + ' thead');
         $('#' + datatables_conf.table_id + ' thead tr:eq(1) th').each(function (i) {
             let title = $(this).text()
-            if (title != '') {
+            if (title !== '') {
                 $(this).html('<input class="form-control input-xs" type="text" style="width:90%" placeholder="' + title + '" />')
                 $('input', this).on('keyup change', function (e) {
                     if (datatable_obj.column(i).search() !== this.value) {

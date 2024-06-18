@@ -109,6 +109,20 @@ return [
             // 'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
         ],*/
 
+        'tenant1_database' => [
+            'driver' => 'mysql',
+            'host' => '127.0.0.1',
+            'port' => '3306',
+            'database' => 'tenant1_database', // Burada varsayılan bir değer bırakmayın
+            'username' => 'root',
+            'password' => '',
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+            // And other options if needed ...
+        ],
         'tenant' => [
             'driver' => 'mysql',
             'host' => env('TENANT_DB_HOST', '127.0.0.1'),

@@ -856,10 +856,106 @@
                 </div>
 
                 <div class="app-navbar-item">
-                    <div class="btn btn-icon rounded-circle w-35px h-35px bg-light-primary border border-primary-clarity" id="kt_drawer_chat_toggle">
-                        <i class="ki-outline ki-message-text-2 text-primary fs-3"></i>
+                    <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-attach="parent"
+                         data-kt-menu-placement="bottom-end">
+                        <button class="btn btn-icon rounded-circle w-35px h-35px bg-light-primary border border-primary-clarity">
+                            <i class="ki-outline ki-basket text-primary fs-3"></i>
+                            {{--@if(!empty(Auth::user()->sepet))
+                                ({{Auth::user()->sepet->urun_sayisi() ?? "0"}} Ürün)
+                            @endif--}}
+                        </button>
+                        <!--begin::My apps-->
+                        <div class="menu menu-sub menu-sub-dropdown menu-column w-100 w-sm-350px" data-kt-menu="true">
+                            <!--begin::Card-->
+                            <div class="card">
+                                <!--begin::Card header-->
+                                <div class="card-header">
+                                    <div class="card-title">Sepetiniz</div>
+                                    <div class="card-toolbar">
+                                        {{--<a href="{{route('admin.siparisler.sepet')}}"
+                                                class="btn btn-sm btn-active-light-primary align-items-center me-n3">
+                                            <i class="bi bi-bag-check"></i>
+                                            Sipariş Oluştur
+                                        </a>--}}
+                                    </div>
+                                </div>
+                                <div class="card-body py-5 px-5">
+                                    <!--begin::Scroll-->
+                                    <div class="mh-450px scroll-y me-n5 pe-5">
+                                        @if(!empty(Auth::user()->basket))
+                                            @if(count(Auth::user()->basket->products) < 1)
+                                                <div class="alert alert-primary d-flex align-items-center p-5">
+                                                    <div class="d-flex flex-column">
+                                                        <h4 class="mb-1 text-dark">Sepetinizde ürün yok</h4>
+                                                        <span>Henüz sepetinize ürün eklemediniz. Sipariş oluştur menüsünden yeni ürün satın alabilirsiniz.</span>
+                                                    </div>
+                                                </div>
+                                            @else
+                                                @foreach(Auth::user()->basket->products as $basketProduct)
+                                                    <div class="card">
+                                                        <div class="card-body p-2">
+                                                            <div class="row">
+                                                                <div class="col-10 mt-5 mb-5">
+                                                                    <a href="{{route('tenant.basket.view')}}">
+                                                                        <p class="mb-0 line-height-20 d-flex justify-content-between">
+                                                                            {{Str::limit($basketProduct->product->name, 24)}}
+                                                                        </p>
+                                                                    </a>
+                                                                </div>
+                                                                <div class="col-2 mt-5 mb-5">
+                                                                    <btn type="button"
+                                                                         onclick="approveAjax('{{route('tenant.basket.destroy',$basketProduct->id)}}', 'get', true)"
+                                                                         class="btn btn-icon btn-danger h-30px w-30px">
+                                                                        <i class="ki-outline ki-trash fs-6"></i>
+                                                                        {{--<i class="bi bi-x-lg"></i>--}}
+                                                                    </btn>
+                                                                </div>
+                                                                <div class="col-4">
+                                                                    <a href="{{route('tenant.basket.view')}}">
+                                                                        <img src="{{ $basketProduct->product->getImage() ?? ""}}"
+                                                                             class="w-50px ms-n1" alt="user">
+                                                                    </a>
+                                                                </div>
+                                                                <div class="col-8">
+                                                                    <div class="small text-muted d-flex flex-column">
+                                                                        <span class="me-2">Adet:({{$basketProduct->piece}})</span>
+                                                                        <span class="me-2">Bayi Komisyon: {{$basketProduct->dealerCommission()}} ₺</span>
+                                                                        <span class="me-2">Firma Komisyon: {{$basketProduct->firmCommission()}} ₺</span>
+                                                                        <span class="me-2">Toplam Fiyat: {{$basketProduct->getSubTotal()}} ₺</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                                <a href="{{route('tenant.basket.view')}}"
+                                                   class="btn btn-sm btn-primary align-items-center w-100 mt-5">
+                                                    <i class="ki-outline ki-basket text-white fs-6"></i>
+                                                    Sipariş Oluştur
+                                                </a>
+                                            @endif
+                                        @else
+                                            <div class="alert alert-primary d-flex align-items-center p-5">
+                                                <div class="d-flex flex-column">
+                                                    <h4 class="mb-1 text-dark">Sepetinizde ürün yok</h4>
+                                                    <span>Henüz sepetinize ürün eklemediniz. Sipariş oluştur menüsünden yeni ürün satın alabilirsiniz.</span>
+                                                </div>
+                                            </div>
+                                        @endif
+                                    </div>
+                                    <!--end::Scroll-->
+                                </div>
+                                <!--end::Card body-->
+                            </div>
+                            <!--end::Card-->
+                        </div>
                     </div>
+
+                    {{--<div class="btn btn-icon rounded-circle w-35px h-35px bg-light-primary border border-primary-clarity" id="kt_drawer_chat_toggle">
+                        <i class="ki-outline ki-message-text-2 text-primary fs-3"></i>
+                    </div>--}}
                 </div>
+
 
                 {{--
                 <div class="app-navbar-item">

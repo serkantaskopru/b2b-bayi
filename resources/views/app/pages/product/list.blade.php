@@ -45,7 +45,7 @@
                                     @if($product->stock > 0)
                                         <div class="d-flex justify-content-center" style="width: 100%">
                                             <a class="btn btn-primary text-white mt-2"
-                                               href="#">Sepete Ekle</a>
+                                               href="{{route('tenant.basket.add', $product->id)}}">Sepete Ekle</a>
                                         </div>
                                     @endif
                                 </div>
@@ -56,7 +56,11 @@
                                         class="h5 mb-0 mt-2 text-center fw-bold text-danger">{{number_format($product->getPrice(), 2, '.', '')}}
                                         TL</h4>
                                     <span class="badge bg-light-secondary">
+                                        @if($product->tax_include)
+                                            KDV Dahil
+                                        @else
                                         KDV (%{{$product->getTaxRate()}}) - {{number_format($product->getTax(), 2, '.', '')}} TL
+                                        @endif
                                     </span>
                                 </div>
                             </div>

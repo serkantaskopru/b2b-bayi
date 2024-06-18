@@ -16,6 +16,8 @@ return new class extends Migration
             $table->integer('basket_id')->constrained('baskets')->onDelete('cascade');
             $table->integer('product_id')->constrained('products')->onDelete('cascade');
             $table->integer('piece');
+            $table->decimal('price', 8, 2);
+            $table->json('images')->nullable();
             $table->mediumText('description');
             $table->longText('order_note');
             $table->timestamps();
