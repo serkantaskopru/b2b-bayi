@@ -7,6 +7,7 @@ use App\Interfaces\DealerGroupRepositoryInterface;
 use App\Interfaces\DealerRepositoryInterface;
 use App\Interfaces\GeozoneRepositoryInterface;
 use App\Interfaces\ImageServiceInterface;
+use App\Interfaces\OrderRepositoryInterface;
 use App\Interfaces\PersonnelRepositoryInterface;
 use App\Interfaces\ProductCategoryRepositoryInterface;
 use App\Interfaces\ProductImageRepositoryInterface;
@@ -16,11 +17,13 @@ use App\Services\DealerGroupService;
 use App\Services\DealerService;
 use App\Services\GeozoneService;
 use App\Services\ImageService;
+use App\Services\OrderService;
 use App\Services\PersonnelService;
 use App\Services\ProductCategoryService;
 use App\Services\ProductImageService;
 use App\Services\ProductService;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -38,6 +41,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(PersonnelRepositoryInterface::class, PersonnelService::class);
         $this->app->bind(BasketRepositoryInterface::class, BasketService::class);
         $this->app->bind(GeozoneRepositoryInterface::class, GeozoneService::class);
+        $this->app->bind(OrderRepositoryInterface::class, OrderService::class);
         $this->app->singleton(ImageServiceInterface::class, ImageService::class);
     }
 
@@ -47,5 +51,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         App::setLocale('tr');
+        Schema::defaultStringLength(191);
     }
 }

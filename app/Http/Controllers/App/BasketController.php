@@ -8,6 +8,7 @@ use App\Interfaces\BasketRepositoryInterface;
 use App\Interfaces\ImageServiceInterface;
 use App\Interfaces\ProductRepositoryInterface;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Str;
 
 class BasketController extends Controller
@@ -25,7 +26,20 @@ class BasketController extends Controller
     public function view(Request $request): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
         $products = $this->basketService->getAuthUserBasket()->products;
-        return view('app.pages.basket.view', ['products' => $products]);
+        $total_dealer_commision = 0;
+        $total_firm_commision = 0;
+        $total_price = 0;
+        foreach($products as $basket_product){
+            $total_dealer_commision += $basket_product->dealerCommission();
+            $total_firm_commision += $basket_product->firmCommission();
+            $total_price += $basket_product->getSubTotal();
+        }
+        return view('app.pages.basket.view', [
+            'products' => $products,
+            'total_dealer_commision' => $total_dealer_commision,
+            'total_firm_commision' => $total_firm_commision,
+            'total_price' => $total_price,
+        ]);
     }
 
     public function add(Request $request, $product_id): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
@@ -53,13 +67,8 @@ class BasketController extends Controller
             }
         }
 
-        $stat = $this->basketService->addProductToCart($product_id, $price, $piece, $images, $description, $order_note);
-
-        if($stat){
-            return response()->json(['code' => 88, 'message' => __('Ürün sepete eklendi')], 200, [], JSON_UNESCAPED_UNICODE);
-        }
-
-        return response()->json(['code' => 4, 'message' => __('Ürün sepete eklenemedi, bir hata oluştu')], 500, [], JSON_UNESCAPED_UNICODE);
+        $status = $this->basketService->addProductToCart($product_id, $price, $piece, $images, $description, $order_note);
+        return Response::json(['code' => $status['code'], 'message' => $status['message']], $status['status'], [], JSON_UNESCAPED_UNICODE);
     }
 
     public function destroy($id): \Illuminate\Http\JsonResponse

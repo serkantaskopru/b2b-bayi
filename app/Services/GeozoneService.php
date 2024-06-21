@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Interfaces\GeozoneRepositoryInterface;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class GeozoneService implements GeozoneRepositoryInterface
 {
@@ -37,4 +38,21 @@ class GeozoneService implements GeozoneRepositoryInterface
         return DB::select('SELECT * FROM geozone_neighbourhoods where district_id = '. $district_id);
     }
 
+    public function getCityNameById($id): string
+    {
+        /*Log::alert(DB::select('SELECT * FROM geozone_cities where id='. $id));*/
+        return DB::select('SELECT * FROM geozone_cities where id='. $id)[0]->name;
+    }
+    public function getCountyNameById($id): string
+    {
+        return DB::select('SELECT * FROM geozone_counties where id='. $id)[0]->name;
+    }
+    public function getDistrictNameById($id): string
+    {
+        return DB::select('SELECT * FROM geozone_districts where id='. $id)[0]->name;
+    }
+    public function getNeighbourhoodById($id): string
+    {
+        return DB::select('SELECT * FROM geozone_neighbourhoods where id='. $id)[0]->name;
+    }
 }

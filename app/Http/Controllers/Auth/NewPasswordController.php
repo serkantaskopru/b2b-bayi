@@ -19,6 +19,12 @@ class NewPasswordController extends Controller
      */
     public function create(Request $request): View
     {
+        try {
+            if(!empty(app('currentTenant'))){
+                return view('app.auth.reset-password', ['request' => $request]);
+            }
+        }catch (\Exception $exception){
+        }
         return view('auth.reset-password', ['request' => $request]);
     }
 

@@ -4,7 +4,6 @@ namespace App\Http\Requests\App\Basket;
 
 use App\Rules\ProductPriceMatch;
 use App\Rules\ProductStockAvailable;
-use App\Rules\StockAvailable;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CreateBasketRequest extends FormRequest

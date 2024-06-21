@@ -22,16 +22,36 @@ class BasketService implements BasketRepositoryInterface
     /**
      * @throws Throwable
      */
-    public function addProductToCart(int $product_id, float|int $price, ?int $piece = 1, ?array $images = null, ?string $description = null, ?string $order_note = null): bool
+    public function addProductToCart(int $product_id, float|int $price, ?int $piece = 1, ?array $images = null, ?string $description = null, ?string $order_note = null): array
     {
         $product = Product::find($product_id);
-        if(empty($product))
-            return false;
+        if(empty($product)){
+            return [
+                'code' => 120001,
+                'message' => __('Sepete eklemek istediğiniz ürün bulunamadı.'),
+                'status' => 500
+            ];
+        }
+
+        if($piece > $product->stock){
+            return [
+                'code' => 120002,
+                'message' => __('Sepetinize eklediğiniz ['. $product->name . ' / '. $product->model . '] ürününün stoğu almak istediğiniz adet kadar mevcut değil.'),
+                'status' => 500
+            ];
+        }
+        if($piece == 0){
+            return [
+                'code' => 120003,
+                'message' => __('Sepete ürün eklemek için adet sayısı en az 1 olmalıdır.'),
+                'status' => 500
+            ];
+        }
 
         DB::beginTransaction();
         try{
             $basket = $this->getAuthUserBasket();
-            $basketProduct = BasketProduct::create([
+            BasketProduct::create([
                 'basket_id' => $basket->id,
                 'product_id' => $product_id,
                 'piece' => $piece,
@@ -41,15 +61,31 @@ class BasketService implements BasketRepositoryInterface
                 'images' => $images,
             ]);
             DB::commit();
-            return true;
+            return [
+                'code' => 88,
+                'message' => __('Ürün sepete eklendi.'),
+                'status' => 200
+            ];
         }catch (\Exception $exception){
             DB::rollBack();
+            return [
+                'code' => 120009,
+                'message' => __('Ürün sepete eklenirken bir hata oluştu.'),
+                'status' => 500
+            ];
         }
-        return false;
     }
 
     public function deleteBasketProduct($product_id): void
     {
         BasketProduct::destroy($product_id);
+    }
+
+    public function clearAuthUserBasket(): void{
+        $basket = $this->getAuthUserBasket();
+        $products = $basket->products;
+        foreach($products as $product){
+            $this->deleteBasketProduct($product->id);
+        }
     }
 }

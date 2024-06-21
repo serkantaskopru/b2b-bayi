@@ -37,7 +37,7 @@
                             <div class="card-body h-100">
                                 <div class="pro-img-box">
                                     <div class="d-flex product-sale">
-                                        <span class="badge bg-light-secondary mb-2">
+                                        <span class="badge @if($product->stock < 5) bg-danger text-white @else bg-light-secondary @endif mb-2">
                                             Stok: {{$product->stock}}</span>
                                         <i class="mdi mdi-heart-outline ms-auto wishlist"></i></div>
                                     <img class="w-100 h-200px" src="{{$product->getImage()}}"

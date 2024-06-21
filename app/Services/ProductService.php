@@ -33,4 +33,23 @@ class ProductService implements ProductRepositoryInterface
         $product->update($newDetails);
         return $product;
     }
+
+    public function increaseProductStock($productId, int $amount): bool
+    {
+        $product = Product::findOrFail($productId);
+        $product->stock += $amount;
+        return $product->save();
+    }
+
+    public function decreaseProductStock($productId, int $amount): bool
+    {
+        $product = Product::findOrFail($productId);
+
+        if ($product->stock < $amount) {
+            return false;
+        }
+
+        $product->stock -= $amount;
+        return $product->save();
+    }
 }

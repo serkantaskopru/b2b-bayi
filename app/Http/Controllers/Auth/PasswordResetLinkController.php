@@ -15,6 +15,12 @@ class PasswordResetLinkController extends Controller
      */
     public function create(): View
     {
+        try {
+            if(!empty(app('currentTenant'))){
+                return view('app.auth.forgot-password');
+            }
+        }catch (\Exception $exception){
+        }
         return view('auth.forgot-password');
     }
 

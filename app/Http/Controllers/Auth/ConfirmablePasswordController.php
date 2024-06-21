@@ -16,6 +16,12 @@ class ConfirmablePasswordController extends Controller
      */
     public function show(): View
     {
+        try {
+            if(!empty(app('currentTenant'))){
+                return view('app.auth.confirm-password');
+            }
+        }catch (\Exception $exception){
+        }
         return view('auth.confirm-password');
     }
 

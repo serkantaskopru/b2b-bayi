@@ -27,7 +27,6 @@ return new class extends Migration
             $table->boolean('is_abroad')->nullable();
             $table->tinyInteger('cargo_firm')->nullable();
             $table->tinyInteger('payment_method')->nullable();
-            $table->decimal('earning', 8, 2);
             $table->decimal('dealer_commission', 8, 2);
             $table->decimal('company_commission', 8, 2);
             $table->decimal('total', 8, 2);

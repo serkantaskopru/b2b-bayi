@@ -5,6 +5,7 @@ use App\Http\Controllers\App\DashboardController;
 use App\Http\Controllers\App\DealerController;
 use App\Http\Controllers\App\DealerGroupController;
 use App\Http\Controllers\App\GeozoneController;
+use App\Http\Controllers\App\OrderController;
 use App\Http\Controllers\App\PersonnelController;
 use App\Http\Controllers\App\ProductCategoryController;
 use App\Http\Controllers\App\ProductController;
@@ -103,6 +104,10 @@ Route::group(['middleware' => ['tenant', 'tenant_session', 'auth']], function ()
         Route::get('/add/{id}',[BasketController::class,'add'])->name('basket.add');
         Route::get('/destroy/{id}',[BasketController::class,'destroy'])->name('basket.destroy');
         Route::post('/add-to-basket',[BasketController::class,'addToBasket'])->name('basket.add_to_basket');
+    });
+
+    Route::group(['prefix' => 'order'],function (){
+        Route::post('/create',[OrderController::class,'createOrder'])->name('order.create');
     });
 
     Route::group(['prefix' => 'geozone'],function (){

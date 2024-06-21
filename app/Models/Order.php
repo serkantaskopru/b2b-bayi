@@ -24,7 +24,6 @@ class Order extends Model
         'is_abroad',
         'cargo_firm',
         'payment_method',
-        'earning',
         'dealer_commission',
         'company_commission',
         'total',
