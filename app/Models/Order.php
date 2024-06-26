@@ -42,4 +42,30 @@ class Order extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function products(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(OrderProduct::class, 'order_id');
+    }
+    public function transactions(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Transaction::class);
+    }
+
+    public function getCargoFirmName(): string
+    {
+        return match ($this->cargo_firm){
+            0 => 'Yurtiçi Kargo',
+            1 => 'Ptt Kargo',
+        };
+    }
+    public function getPaymentMethodName(): string
+    {
+        return match ($this->payment_method){
+            0 => 'Kapıda Ödeme',
+            1 => 'Kredi Kartı',
+            2 => 'Bayi Hesabına',
+            3 => 'Firma Hesabına',
+        };
+    }
 }

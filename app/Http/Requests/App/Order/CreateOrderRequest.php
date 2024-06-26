@@ -21,7 +21,7 @@ class CreateOrderRequest extends FormRequest
             'customer_mail' => ['email','required'],
             'customer_phone' => ['string','required'],
             'customer_address' => ['string','required','max:1024'],
-            'gift_message' => ['string','max:1024'],
+            'gift_message' => ['nullable','string','max:1024'],
             'is_abroad' => ['numeric','between:0,1'],
             'invoice_send' => ['numeric','between:0,1'],
             'city' => ['exists:geozone_cities,id'],

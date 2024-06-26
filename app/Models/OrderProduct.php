@@ -15,6 +15,7 @@ class OrderProduct extends Model
         'piece',
         'name',
         'image',
+        'images',
         'price',
         'dealer_sales_price',
         'total_sales_price',
@@ -22,6 +23,10 @@ class OrderProduct extends Model
         'company_commission',
         'description',
         'product_note',
+    ];
+
+    protected $casts = [
+        'images' => 'array',
     ];
 
     public function order(): \Illuminate\Database\Eloquent\Relations\BelongsTo

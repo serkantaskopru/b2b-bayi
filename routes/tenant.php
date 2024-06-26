@@ -5,10 +5,13 @@ use App\Http\Controllers\App\DashboardController;
 use App\Http\Controllers\App\DealerController;
 use App\Http\Controllers\App\DealerGroupController;
 use App\Http\Controllers\App\GeozoneController;
+use App\Http\Controllers\App\NotificationController;
 use App\Http\Controllers\App\OrderController;
 use App\Http\Controllers\App\PersonnelController;
 use App\Http\Controllers\App\ProductCategoryController;
 use App\Http\Controllers\App\ProductController;
+use App\Http\Controllers\App\RoleController;
+use App\Http\Controllers\App\SettingController;
 use App\Models\User;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
@@ -107,13 +110,32 @@ Route::group(['middleware' => ['tenant', 'tenant_session', 'auth']], function ()
     });
 
     Route::group(['prefix' => 'order'],function (){
+        Route::get('/show/{id}',[OrderController::class,'show'])->name('order.show');
+        Route::get('/fetch-orders',[OrderController::class,'fetchOrdersByStatus'])->name('order.fetch_by_status');
         Route::post('/create',[OrderController::class,'createOrder'])->name('order.create');
     });
+
+    Route::group(['prefix' => 'settings'],function (){
+        Route::get('/',[SettingController::class,'index'])->name('settings.index');
+        Route::post('/update',[SettingController::class,'update'])->name('settings.update');
+    });
+   /* Route::resource('/settings',SettingController::class);*/
 
     Route::group(['prefix' => 'geozone'],function (){
         Route::get('/get-cities',[GeozoneController::class,'getCities'])->name('geozone.cities');
         Route::get('/get-counties',[GeozoneController::class,'getCounties'])->name('geozone.counties');
         Route::get('/get-districts',[GeozoneController::class,'getDistricts'])->name('geozone.districts');
         Route::get('/get-neighbourhoods',[GeozoneController::class,'getNeighbourhoods'])->name('geozone.neighbourhoods');
+    });
+
+    Route::group(['prefix' => 'notifications'],function (){
+        Route::post('/read', [NotificationController::class, 'markAsRead'])->name('notifications.read');
+    });
+
+    Route::group(['prefix' => 'roles'],function (){
+        Route::get('/',[RoleController::class,'index'])->name('roles.index');
+        Route::get('/fetch',[RoleController::class,'fetch'])->name('roles.fetch');
+        Route::get('/roles/{role}/edit', [RoleController::class, 'edit'])->name('roles.edit');
+        Route::post('/roles/{role}/permissions', [RoleController::class, 'updatePermissions'])->name('roles.permissions.update');
     });
 });

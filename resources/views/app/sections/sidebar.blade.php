@@ -20,6 +20,13 @@
             <div class="app-sidebar-navs-default px-5 mb-10">
                 <div id="#kt_app_sidebar_menu" data-kt-menu="true" data-kt-menu-expand="false"
                      class="menu menu-column menu-rounded menu-sub-indention">
+                    <div class="separator mb-4 mx-4">
+                        @if(!empty(auth()->user()->dealer))
+                            <span class="badge {{ (auth()->user()->dealer->balance < 0) ? 'bg-danger' : 'bg-success text-white' }}" >
+                                Bakiye: {{ auth()->user()->dealer->balance }} TL
+                            </span>
+                        @endif
+                    </div>
                     <div class="menu-item pb-0 pt-0">
                         <div class="menu-content">
                             <span class="menu-heading">{{app('currentTenant')->name ?? '#unknownTenant'}}</span>
@@ -134,9 +141,9 @@
                             <span class="menu-title">Personeller</span>
                         </a>
                     </div>
-                    <div class="menu-item">
-                        <a class="menu-link"
-                           href="#">
+                    <div class="menu-item {{ Request::routeIs('tenant.settings.index') ? 'here show' : '' }}">
+                        <a class="menu-link {{ Request::routeIs('tenant.settings.index') ? 'active' : '' }}"
+                           href="{{route('tenant.settings.index')}}">
 								<span
                                     class="menu-bullet">
 									<span class="bullet bullet-dot">

@@ -1,13 +1,15 @@
-<div id="kt_app_header" class="app-header" data-kt-sticky="true" data-kt-sticky-activate="{default: true, lg: true}" data-kt-sticky-name="app-header-sticky" data-kt-sticky-offset="{default: '200px', lg: '300px'}">
+<div id="kt_app_header" class="app-header" data-kt-sticky="true" data-kt-sticky-activate="{default: true, lg: true}"
+     data-kt-sticky-name="app-header-sticky" data-kt-sticky-offset="{default: '200px', lg: '300px'}">
     <div class="app-container container-fluid d-flex flex-stack" id="kt_app_header_container">
         <div class="d-flex d-lg-none align-items-center me-lg-20 gap-1 gap-lg-2">
-            <div class="btn btn-icon btn-color-gray-500 btn-active-color-primary w-35px h-35px d-flex d-lg-none" id="kt_app_sidebar_toggle">
+            <div class="btn btn-icon btn-color-gray-500 btn-active-color-primary w-35px h-35px d-flex d-lg-none"
+                 id="kt_app_sidebar_toggle">
                 <i class="ki-outline ki-abstract-14 lh-0 fs-1"></i>
             </div>
 
             <a href="#">
-                <img alt="Logo" src="/manage/media/logos/demo63.svg" class="h-25px theme-light-show" />
-                <img alt="Logo" src="/manage/media/logos/demo63-dark.svg" class="h-25px theme-dark-show" />
+                <img alt="Logo" src="/manage/media/logos/demo63.svg" class="h-25px theme-light-show"/>
+                <img alt="Logo" src="/manage/media/logos/demo63-dark.svg" class="h-25px theme-dark-show"/>
             </a>
         </div>
 
@@ -24,7 +26,8 @@
 
                 <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 mb-2">
                     <li class="breadcrumb-item text-gray-600 fw-bold lh-1">
-                        <a href="#" class="text-gray-700 text-hover-primary me-1"> <i class="ki-outline ki-home text-gray-500 fs-7"></i> </a>
+                        <a href="#" class="text-gray-700 text-hover-primary me-1"> <i
+                                class="ki-outline ki-home text-gray-500 fs-7"></i> </a>
                     </li>
 
                     <li class="breadcrumb-item">
@@ -38,7 +41,7 @@
             </div>
 
             <div class="app-navbar flex-shrink-0 gap-2 gap-lg-4">
-                <div class="app-navbar-item">
+                {{--<div class="app-navbar-item">
                     <div
                         id="kt_header_search"
                         class="header-search d-flex align-items-stretch"
@@ -51,33 +54,48 @@
                         data-kt-menu-permanent="true"
                         data-kt-menu-placement="bottom-end"
                     >
-                        <div class="d-flex align-items-center" data-kt-search-element="toggle" id="kt_header_search_toggle">
-                            <div class="btn btn-icon rounded-circle w-35px h-35px bg-light-info border border-info-clarity">
+                        <div class="d-flex align-items-center" data-kt-search-element="toggle"
+                             id="kt_header_search_toggle">
+                            <div
+                                class="btn btn-icon rounded-circle w-35px h-35px bg-light-info border border-info-clarity">
                                 <i class="ki-outline ki-magnifier text-info fs-3"></i>
                             </div>
                         </div>
 
-                        <div data-kt-search-element="content" class="menu menu-sub menu-sub-dropdown p-7 w-325px w-md-375px">
+                        <div data-kt-search-element="content"
+                             class="menu menu-sub menu-sub-dropdown p-7 w-325px w-md-375px">
                             <div data-kt-search-element="wrapper">
-                                <form data-kt-search-element="form" class="w-100 position-relative mb-3" autocomplete="off">
+                                <form data-kt-search-element="form" class="w-100 position-relative mb-3"
+                                      autocomplete="off">
                                     <i class="ki-outline ki-magnifier fs-2 text-gray-500 position-absolute top-50 translate-middle-y ms-0"></i>
 
-                                    <input type="text" class="search-input form-control form-control-flush ps-10" name="search" value="" placeholder="Search..." data-kt-search-element="input" />
+                                    <input type="text" class="search-input form-control form-control-flush ps-10"
+                                           name="search" value="" placeholder="Search..."
+                                           data-kt-search-element="input"/>
 
-                                    <span class="search-spinner position-absolute top-50 end-0 translate-middle-y lh-0 d-none me-1" data-kt-search-element="spinner">
+                                    <span
+                                        class="search-spinner position-absolute top-50 end-0 translate-middle-y lh-0 d-none me-1"
+                                        data-kt-search-element="spinner">
                                         <span class="spinner-border h-15px w-15px align-middle text-gray-500"></span>
                                     </span>
 
-                                    <span class="search-reset btn btn-flush btn-active-color-primary position-absolute top-50 end-0 translate-middle-y lh-0 d-none" data-kt-search-element="clear">
+                                    <span
+                                        class="search-reset btn btn-flush btn-active-color-primary position-absolute top-50 end-0 translate-middle-y lh-0 d-none"
+                                        data-kt-search-element="clear">
                                         <i class="ki-outline ki-cross fs-2 fs-lg-1 me-0"></i>
                                     </span>
 
-                                    <div class="position-absolute top-50 end-0 translate-middle-y" data-kt-search-element="toolbar">
-                                        <div data-kt-search-element="preferences-show" class="btn btn-icon w-20px btn-sm btn-active-color-primary me-1" data-bs-toggle="tooltip" title="Show search preferences">
+                                    <div class="position-absolute top-50 end-0 translate-middle-y"
+                                         data-kt-search-element="toolbar">
+                                        <div data-kt-search-element="preferences-show"
+                                             class="btn btn-icon w-20px btn-sm btn-active-color-primary me-1"
+                                             data-bs-toggle="tooltip" title="Show search preferences">
                                             <i class="ki-outline ki-setting-2 fs-2"></i>
                                         </div>
 
-                                        <div data-kt-search-element="advanced-options-form-show" class="btn btn-icon w-20px btn-sm btn-active-color-primary" data-bs-toggle="tooltip" title="Show more search options">
+                                        <div data-kt-search-element="advanced-options-form-show"
+                                             class="btn btn-icon w-20px btn-sm btn-active-color-primary"
+                                             data-bs-toggle="tooltip" title="Show more search options">
                                             <i class="ki-outline ki-down fs-2"></i>
                                         </div>
                                     </div>
@@ -91,9 +109,10 @@
                                             Users
                                         </h3>
 
-                                        <a href="#" class="d-flex text-gray-900 text-hover-primary align-items-center mb-5">
+                                        <a href="#"
+                                           class="d-flex text-gray-900 text-hover-primary align-items-center mb-5">
                                             <div class="symbol symbol-40px me-4">
-                                                <img src="/manage/media/avatars/300-6.jpg" alt="" />
+                                                <img src="/manage/media/avatars/300-6.jpg" alt=""/>
                                             </div>
 
                                             <div class="d-flex flex-column justify-content-start fw-semibold">
@@ -102,9 +121,10 @@
                                             </div>
                                         </a>
 
-                                        <a href="#" class="d-flex text-gray-900 text-hover-primary align-items-center mb-5">
+                                        <a href="#"
+                                           class="d-flex text-gray-900 text-hover-primary align-items-center mb-5">
                                             <div class="symbol symbol-40px me-4">
-                                                <img src="/manage/media/avatars/300-2.jpg" alt="" />
+                                                <img src="/manage/media/avatars/300-2.jpg" alt=""/>
                                             </div>
 
                                             <div class="d-flex flex-column justify-content-start fw-semibold">
@@ -113,9 +133,10 @@
                                             </div>
                                         </a>
 
-                                        <a href="#" class="d-flex text-gray-900 text-hover-primary align-items-center mb-5">
+                                        <a href="#"
+                                           class="d-flex text-gray-900 text-hover-primary align-items-center mb-5">
                                             <div class="symbol symbol-40px me-4">
-                                                <img src="/manage/media/avatars/300-9.jpg" alt="" />
+                                                <img src="/manage/media/avatars/300-9.jpg" alt=""/>
                                             </div>
 
                                             <div class="d-flex flex-column justify-content-start fw-semibold">
@@ -124,9 +145,10 @@
                                             </div>
                                         </a>
 
-                                        <a href="#" class="d-flex text-gray-900 text-hover-primary align-items-center mb-5">
+                                        <a href="#"
+                                           class="d-flex text-gray-900 text-hover-primary align-items-center mb-5">
                                             <div class="symbol symbol-40px me-4">
-                                                <img src="/manage/media/avatars/300-14.jpg" alt="" />
+                                                <img src="/manage/media/avatars/300-14.jpg" alt=""/>
                                             </div>
 
                                             <div class="d-flex flex-column justify-content-start fw-semibold">
@@ -135,9 +157,10 @@
                                             </div>
                                         </a>
 
-                                        <a href="#" class="d-flex text-gray-900 text-hover-primary align-items-center mb-5">
+                                        <a href="#"
+                                           class="d-flex text-gray-900 text-hover-primary align-items-center mb-5">
                                             <div class="symbol symbol-40px me-4">
-                                                <img src="/manage/media/avatars/300-11.jpg" alt="" />
+                                                <img src="/manage/media/avatars/300-11.jpg" alt=""/>
                                             </div>
 
                                             <div class="d-flex flex-column justify-content-start fw-semibold">
@@ -146,14 +169,17 @@
                                             </div>
                                         </a>
 
-                                        <h3 class="fs-5 text-muted m-0 pt-5 pb-5" data-kt-search-element="category-title">
+                                        <h3 class="fs-5 text-muted m-0 pt-5 pb-5"
+                                            data-kt-search-element="category-title">
                                             Customers
                                         </h3>
 
-                                        <a href="#" class="d-flex text-gray-900 text-hover-primary align-items-center mb-5">
+                                        <a href="#"
+                                           class="d-flex text-gray-900 text-hover-primary align-items-center mb-5">
                                             <div class="symbol symbol-40px me-4">
                                                 <span class="symbol-label bg-light">
-                                                    <img class="w-20px h-20px" src="/manage/media/svg/brand-logos/volicity-9.svg" alt="" />
+                                                    <img class="w-20px h-20px"
+                                                         src="/manage/media/svg/brand-logos/volicity-9.svg" alt=""/>
                                                 </span>
                                             </div>
 
@@ -163,10 +189,12 @@
                                             </div>
                                         </a>
 
-                                        <a href="#" class="d-flex text-gray-900 text-hover-primary align-items-center mb-5">
+                                        <a href="#"
+                                           class="d-flex text-gray-900 text-hover-primary align-items-center mb-5">
                                             <div class="symbol symbol-40px me-4">
                                                 <span class="symbol-label bg-light">
-                                                    <img class="w-20px h-20px" src="/manage/media/svg/brand-logos/tvit.svg" alt="" />
+                                                    <img class="w-20px h-20px"
+                                                         src="/manage/media/svg/brand-logos/tvit.svg" alt=""/>
                                                 </span>
                                             </div>
 
@@ -176,10 +204,12 @@
                                             </div>
                                         </a>
 
-                                        <a href="#" class="d-flex text-gray-900 text-hover-primary align-items-center mb-5">
+                                        <a href="#"
+                                           class="d-flex text-gray-900 text-hover-primary align-items-center mb-5">
                                             <div class="symbol symbol-40px me-4">
                                                 <span class="symbol-label bg-light">
-                                                    <img class="w-20px h-20px" src="/manage/media/svg/misc/infography.svg" alt="" />
+                                                    <img class="w-20px h-20px"
+                                                         src="/manage/media/svg/misc/infography.svg" alt=""/>
                                                 </span>
                                             </div>
 
@@ -189,10 +219,12 @@
                                             </div>
                                         </a>
 
-                                        <a href="#" class="d-flex text-gray-900 text-hover-primary align-items-center mb-5">
+                                        <a href="#"
+                                           class="d-flex text-gray-900 text-hover-primary align-items-center mb-5">
                                             <div class="symbol symbol-40px me-4">
                                                 <span class="symbol-label bg-light">
-                                                    <img class="w-20px h-20px" src="/manage/media/svg/brand-logos/leaf.svg" alt="" />
+                                                    <img class="w-20px h-20px"
+                                                         src="/manage/media/svg/brand-logos/leaf.svg" alt=""/>
                                                 </span>
                                             </div>
 
@@ -202,10 +234,12 @@
                                             </div>
                                         </a>
 
-                                        <a href="#" class="d-flex text-gray-900 text-hover-primary align-items-center mb-5">
+                                        <a href="#"
+                                           class="d-flex text-gray-900 text-hover-primary align-items-center mb-5">
                                             <div class="symbol symbol-40px me-4">
                                                 <span class="symbol-label bg-light">
-                                                    <img class="w-20px h-20px" src="/manage/media/svg/brand-logos/tower.svg" alt="" />
+                                                    <img class="w-20px h-20px"
+                                                         src="/manage/media/svg/brand-logos/tower.svg" alt=""/>
                                                 </span>
                                             </div>
 
@@ -215,11 +249,13 @@
                                             </div>
                                         </a>
 
-                                        <h3 class="fs-5 text-muted m-0 pt-5 pb-5" data-kt-search-element="category-title">
+                                        <h3 class="fs-5 text-muted m-0 pt-5 pb-5"
+                                            data-kt-search-element="category-title">
                                             Projects
                                         </h3>
 
-                                        <a href="#" class="d-flex text-gray-900 text-hover-primary align-items-center mb-5">
+                                        <a href="#"
+                                           class="d-flex text-gray-900 text-hover-primary align-items-center mb-5">
                                             <div class="symbol symbol-40px me-4">
                                                 <span class="symbol-label bg-light">
                                                     <i class="ki-outline ki-notepad fs-2 text-primary"></i>
@@ -232,7 +268,8 @@
                                             </div>
                                         </a>
 
-                                        <a href="#" class="d-flex text-gray-900 text-hover-primary align-items-center mb-5">
+                                        <a href="#"
+                                           class="d-flex text-gray-900 text-hover-primary align-items-center mb-5">
                                             <div class="symbol symbol-40px me-4">
                                                 <span class="symbol-label bg-light">
                                                     <i class="ki-outline ki-frame fs-2 text-primary"></i>
@@ -245,7 +282,8 @@
                                             </div>
                                         </a>
 
-                                        <a href="#" class="d-flex text-gray-900 text-hover-primary align-items-center mb-5">
+                                        <a href="#"
+                                           class="d-flex text-gray-900 text-hover-primary align-items-center mb-5">
                                             <div class="symbol symbol-40px me-4">
                                                 <span class="symbol-label bg-light">
                                                     <i class="ki-outline ki-message-text-2 fs-2 text-primary"></i>
@@ -258,7 +296,8 @@
                                             </div>
                                         </a>
 
-                                        <a href="#" class="d-flex text-gray-900 text-hover-primary align-items-center mb-5">
+                                        <a href="#"
+                                           class="d-flex text-gray-900 text-hover-primary align-items-center mb-5">
                                             <div class="symbol symbol-40px me-4">
                                                 <span class="symbol-label bg-light">
                                                     <i class="ki-outline ki-profile-circle fs-2 text-primary"></i>
@@ -287,7 +326,8 @@
                                             </div>
 
                                             <div class="d-flex flex-column">
-                                                <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-semibold">BoomApp by Keenthemes</a>
+                                                <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-semibold">BoomApp
+                                                    by Keenthemes</a>
                                                 <span class="fs-7 text-muted fw-semibold">#45789</span>
                                             </div>
                                         </div>
@@ -300,7 +340,8 @@
                                             </div>
 
                                             <div class="d-flex flex-column">
-                                                <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-semibold">"Kept API Project Meeting</a>
+                                                <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-semibold">"Kept
+                                                    API Project Meeting</a>
                                                 <span class="fs-7 text-muted fw-semibold">#84050</span>
                                             </div>
                                         </div>
@@ -313,7 +354,8 @@
                                             </div>
 
                                             <div class="d-flex flex-column">
-                                                <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-semibold">"KPI Monitoring App Launch</a>
+                                                <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-semibold">"KPI
+                                                    Monitoring App Launch</a>
                                                 <span class="fs-7 text-muted fw-semibold">#84250</span>
                                             </div>
                                         </div>
@@ -326,7 +368,8 @@
                                             </div>
 
                                             <div class="d-flex flex-column">
-                                                <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-semibold">Project Reference FAQ</a>
+                                                <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-semibold">Project
+                                                    Reference FAQ</a>
                                                 <span class="fs-7 text-muted fw-semibold">#67945</span>
                                             </div>
                                         </div>
@@ -339,7 +382,8 @@
                                             </div>
 
                                             <div class="d-flex flex-column">
-                                                <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-semibold">"FitPro App Development</a>
+                                                <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-semibold">"FitPro
+                                                    App Development</a>
                                                 <span class="fs-7 text-muted fw-semibold">#84250</span>
                                             </div>
                                         </div>
@@ -352,7 +396,8 @@
                                             </div>
 
                                             <div class="d-flex flex-column">
-                                                <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-semibold">Shopix Mobile App</a>
+                                                <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-semibold">Shopix
+                                                    Mobile App</a>
                                                 <span class="fs-7 text-muted fw-semibold">#45690</span>
                                             </div>
                                         </div>
@@ -365,7 +410,8 @@
                                             </div>
 
                                             <div class="d-flex flex-column">
-                                                <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-semibold">"Landing UI Design" Launch</a>
+                                                <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-semibold">"Landing
+                                                    UI Design" Launch</a>
                                                 <span class="fs-7 text-muted fw-semibold">#24005</span>
                                             </div>
                                         </div>
@@ -388,34 +434,36 @@
                                 <h3 class="fw-semibold text-gray-900 mb-7">Advanced Search</h3>
 
                                 <div class="mb-5">
-                                    <input type="text" class="form-control form-control-sm form-control-solid" placeholder="Contains the word" name="query" />
+                                    <input type="text" class="form-control form-control-sm form-control-solid"
+                                           placeholder="Contains the word" name="query"/>
                                 </div>
 
                                 <div class="mb-5">
                                     <div class="nav-group nav-group-fluid">
                                         <label>
-                                            <input type="radio" class="btn-check" name="type" value="has" checked="checked" />
+                                            <input type="radio" class="btn-check" name="type" value="has"
+                                                   checked="checked"/>
                                             <span class="btn btn-sm btn-color-muted btn-active btn-active-primary">
                                                 All
                                             </span>
                                         </label>
 
                                         <label>
-                                            <input type="radio" class="btn-check" name="type" value="users" />
+                                            <input type="radio" class="btn-check" name="type" value="users"/>
                                             <span class="btn btn-sm btn-color-muted btn-active btn-active-primary px-4">
                                                 Users
                                             </span>
                                         </label>
 
                                         <label>
-                                            <input type="radio" class="btn-check" name="type" value="orders" />
+                                            <input type="radio" class="btn-check" name="type" value="orders"/>
                                             <span class="btn btn-sm btn-color-muted btn-active btn-active-primary px-4">
                                                 Orders
                                             </span>
                                         </label>
 
                                         <label>
-                                            <input type="radio" class="btn-check" name="type" value="projects" />
+                                            <input type="radio" class="btn-check" name="type" value="projects"/>
                                             <span class="btn btn-sm btn-color-muted btn-active btn-active-primary px-4">
                                                 Projects
                                             </span>
@@ -424,24 +472,29 @@
                                 </div>
 
                                 <div class="mb-5">
-                                    <input type="text" name="assignedto" class="form-control form-control-sm form-control-solid" placeholder="Assigned to" value="" />
+                                    <input type="text" name="assignedto"
+                                           class="form-control form-control-sm form-control-solid"
+                                           placeholder="Assigned to" value=""/>
                                 </div>
 
                                 <div class="mb-5">
-                                    <input type="text" name="collaborators" class="form-control form-control-sm form-control-solid" placeholder="Collaborators" value="" />
+                                    <input type="text" name="collaborators"
+                                           class="form-control form-control-sm form-control-solid"
+                                           placeholder="Collaborators" value=""/>
                                 </div>
 
                                 <div class="mb-5">
                                     <div class="nav-group nav-group-fluid">
                                         <label>
-                                            <input type="radio" class="btn-check" name="attachment" value="has" checked="checked" />
+                                            <input type="radio" class="btn-check" name="attachment" value="has"
+                                                   checked="checked"/>
                                             <span class="btn btn-sm btn-color-muted btn-active btn-active-primary">
                                                 Has attachment
                                             </span>
                                         </label>
 
                                         <label>
-                                            <input type="radio" class="btn-check" name="attachment" value="any" />
+                                            <input type="radio" class="btn-check" name="attachment" value="any"/>
                                             <span class="btn btn-sm btn-color-muted btn-active btn-active-primary px-4">
                                                 Any
                                             </span>
@@ -450,7 +503,9 @@
                                 </div>
 
                                 <div class="mb-5">
-                                    <select name="timezone" aria-label="Select a Timezone" data-control="select2" data-dropdown-parent="#kt_header_search" data-placeholder="date_period" class="form-select form-select-sm form-select-solid">
+                                    <select name="timezone" aria-label="Select a Timezone" data-control="select2"
+                                            data-dropdown-parent="#kt_header_search" data-placeholder="date_period"
+                                            class="form-select form-select-sm form-select-solid">
                                         <option value="next">Within the next</option>
                                         <option value="last">Within the last</option>
                                         <option value="between">Between</option>
@@ -460,11 +515,15 @@
 
                                 <div class="row mb-8">
                                     <div class="col-6">
-                                        <input type="number" name="date_number" class="form-control form-control-sm form-control-solid" placeholder="Lenght" value="" />
+                                        <input type="number" name="date_number"
+                                               class="form-control form-control-sm form-control-solid"
+                                               placeholder="Lenght" value=""/>
                                     </div>
 
                                     <div class="col-6">
-                                        <select name="date_typer" aria-label="Select a Timezone" data-control="select2" data-dropdown-parent="#kt_header_search" data-placeholder="Period" class="form-select form-select-sm form-select-solid">
+                                        <select name="date_typer" aria-label="Select a Timezone" data-control="select2"
+                                                data-dropdown-parent="#kt_header_search" data-placeholder="Period"
+                                                class="form-select form-select-sm form-select-solid">
                                             <option value="days">Days</option>
                                             <option value="weeks">Weeks</option>
                                             <option value="months">Months</option>
@@ -474,9 +533,14 @@
                                 </div>
 
                                 <div class="d-flex justify-content-end">
-                                    <button type="reset" class="btn btn-sm btn-light fw-bold btn-active-light-primary me-2" data-kt-search-element="advanced-options-form-cancel">Cancel</button>
+                                    <button type="reset"
+                                            class="btn btn-sm btn-light fw-bold btn-active-light-primary me-2"
+                                            data-kt-search-element="advanced-options-form-cancel">Cancel
+                                    </button>
 
-                                    <a href="/metronic8/demo63/utilities/search/horizontal.html" class="btn btn-sm fw-bold btn-primary" data-kt-search-element="advanced-options-form-search">Search</a>
+                                    <a href="/metronic8/demo63/utilities/search/horizontal.html"
+                                       class="btn btn-sm fw-bold btn-primary"
+                                       data-kt-search-element="advanced-options-form-search">Search</a>
                                 </div>
                             </form>
 
@@ -484,369 +548,155 @@
                                 <h3 class="fw-semibold text-gray-900 mb-7">Search Preferences</h3>
 
                                 <div class="pb-4 border-bottom">
-                                    <label class="form-check form-switch form-switch-sm form-check-custom form-check-solid flex-stack">
+                                    <label
+                                        class="form-check form-switch form-switch-sm form-check-custom form-check-solid flex-stack">
                                         <span class="form-check-label text-gray-700 fs-6 fw-semibold ms-0 me-2">
                                             Projects
                                         </span>
 
-                                        <input class="form-check-input" type="checkbox" value="1" checked="checked" />
+                                        <input class="form-check-input" type="checkbox" value="1" checked="checked"/>
                                     </label>
                                 </div>
 
                                 <div class="py-4 border-bottom">
-                                    <label class="form-check form-switch form-switch-sm form-check-custom form-check-solid flex-stack">
+                                    <label
+                                        class="form-check form-switch form-switch-sm form-check-custom form-check-solid flex-stack">
                                         <span class="form-check-label text-gray-700 fs-6 fw-semibold ms-0 me-2">
                                             Targets
                                         </span>
-                                        <input class="form-check-input" type="checkbox" value="1" checked="checked" />
+                                        <input class="form-check-input" type="checkbox" value="1" checked="checked"/>
                                     </label>
                                 </div>
 
                                 <div class="py-4 border-bottom">
-                                    <label class="form-check form-switch form-switch-sm form-check-custom form-check-solid flex-stack">
+                                    <label
+                                        class="form-check form-switch form-switch-sm form-check-custom form-check-solid flex-stack">
                                         <span class="form-check-label text-gray-700 fs-6 fw-semibold ms-0 me-2">
                                             Affiliate Programs
                                         </span>
-                                        <input class="form-check-input" type="checkbox" value="1" />
+                                        <input class="form-check-input" type="checkbox" value="1"/>
                                     </label>
                                 </div>
 
                                 <div class="py-4 border-bottom">
-                                    <label class="form-check form-switch form-switch-sm form-check-custom form-check-solid flex-stack">
+                                    <label
+                                        class="form-check form-switch form-switch-sm form-check-custom form-check-solid flex-stack">
                                         <span class="form-check-label text-gray-700 fs-6 fw-semibold ms-0 me-2">
                                             Referrals
                                         </span>
-                                        <input class="form-check-input" type="checkbox" value="1" checked="checked" />
+                                        <input class="form-check-input" type="checkbox" value="1" checked="checked"/>
                                     </label>
                                 </div>
 
                                 <div class="py-4 border-bottom">
-                                    <label class="form-check form-switch form-switch-sm form-check-custom form-check-solid flex-stack">
+                                    <label
+                                        class="form-check form-switch form-switch-sm form-check-custom form-check-solid flex-stack">
                                         <span class="form-check-label text-gray-700 fs-6 fw-semibold ms-0 me-2">
                                             Users
                                         </span>
-                                        <input class="form-check-input" type="checkbox" value="1" />
+                                        <input class="form-check-input" type="checkbox" value="1"/>
                                     </label>
                                 </div>
 
                                 <div class="d-flex justify-content-end pt-7">
-                                    <button type="reset" class="btn btn-sm btn-light fw-bold btn-active-light-primary me-2" data-kt-search-element="preferences-dismiss">Cancel</button>
+                                    <button type="reset"
+                                            class="btn btn-sm btn-light fw-bold btn-active-light-primary me-2"
+                                            data-kt-search-element="preferences-dismiss">Cancel
+                                    </button>
                                     <button type="submit" class="btn btn-sm fw-bold btn-primary">Save Changes</button>
                                 </div>
                             </form>
                         </div>
                     </div>
-                </div>
+                </div>--}}
 
                 <div class="app-navbar-item">
+                    @php
+                        $notifications = get_all_notifications();
+                    @endphp
                     <div
-                        class="btn btn-icon rounded-circle w-35px h-35px bg-light-warning border border-warning-clarity"
+                        class="btn btn-icon rounded-circle w-35px h-35px bg-light-warning position-relative border border-warning-clarity @if(count($notifications['unread']) > 0) pulse green-pulse @endif"
                         data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
                         data-kt-menu-attach="parent"
                         data-kt-menu-placement="bottom-end"
                         id="kt_menu_item_wow"
                     >
                         <i class="ki-outline ki-notification-on text-warning fs-3"></i>
+                        @if(count($notifications['unread']) > 0)
+                            <span
+                                class="bullet bullet-dot bg-success h-6px w-6px position-absolute translate-middle top-0 start-50 animation-blink">
+                            </span>
+                        @endif
                     </div>
 
-                    <div class="menu menu-sub menu-sub-dropdown menu-column w-350px w-lg-375px" data-kt-menu="true" id="kt_menu_notifications">
-                        <div class="d-flex flex-column bgi-no-repeat rounded-top" style="background-image: url('/manage/media/misc/menu-header-bg.jpg');">
-                            <h3 class="text-white fw-semibold px-9 mt-10 mb-6">Notifications <span class="fs-8 opacity-75 ps-3">24 reports</span></h3>
-
-                            <ul class="nav nav-line-tabs nav-line-tabs-2x nav-stretch fw-semibold px-9">
-                                <li class="nav-item">
-                                    <a class="nav-link text-white opacity-75 opacity-state-100 pb-4" data-bs-toggle="tab" href="#kt_topbar_notifications_1">Alerts</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a class="nav-link text-white opacity-75 opacity-state-100 pb-4 active" data-bs-toggle="tab" href="#kt_topbar_notifications_2">Updates</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a class="nav-link text-white opacity-75 opacity-state-100 pb-4" data-bs-toggle="tab" href="#kt_topbar_notifications_3">Logs</a>
-                                </li>
-                            </ul>
+                    <div class="menu menu-sub menu-sub-dropdown menu-column w-350px w-lg-375px" data-kt-menu="true"
+                         id="kt_menu_notifications">
+                        <div class="d-flex flex-column bgi-no-repeat rounded-top"
+                             style="background-image: url('/manage/media/misc/menu-header-bg.jpg');">
+                            <h3 class="text-white fw-semibold px-6 mt-6 mb-6">Bildirimler
+                                @if(count($notifications['unread']) > 0)
+                                    <span
+                                        class="fs-8 opacity-75 ps-3">{{ count($notifications['unread']) }} okunmamış mesaj var</span>
+                                @endif
+                            </h3>
                         </div>
 
                         <div class="tab-content">
-                            <div class="tab-pane fade" id="kt_topbar_notifications_1" role="tabpanel">
-                                <div class="scroll-y mh-325px my-5 px-8">
-                                    <div class="d-flex flex-stack py-4">
-                                        <div class="d-flex align-items-center">
-                                            <div class="symbol symbol-35px me-4">
-                                                <span class="symbol-label bg-light-primary">
-                                                    <i class="ki-outline ki-abstract-28 fs-2 text-primary"></i>
-                                                </span>
+                            <div class="tab-pane fade show active" id="kt_topbar_notifications_1" role="tabpanel">
+                                <div class="scroll-y mh-325px my-5 px-4">
+                                    @forelse ($notifications['unread'] as $notification)
+                                        <!--begin::Item-->
+                                        <div class="d-flex justify-content-between bg-light rounded rounded-lg p-4 mb-2">
+                                            <div>
+                                                <!--begin::Section-->
+                                                <div class="d-flex align-items-center me-2">
+                                                    <!--begin::Title-->
+                                                    <a href="{{route('tenant.order.show',$notification->data['order_id'] ?? '#')}}"
+                                                       class="text-gray-800 text-hover-primary fw-semibold">{{ $notification->data['message'] }}</a>
+                                                    <!--end::Title-->
+                                                </div>
+                                                <!--end::Section-->
+
+                                                <!--begin::Label-->
+                                                <span class="fs-8">{{ $notification->created_at->format('d.m.Y H:i') }}</span>
+                                                <!--end::Label-->
                                             </div>
-
-                                            <div class="mb-0 me-2">
-                                                <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-bold">Project Alice</a>
-                                                <div class="text-gray-500 fs-7">Phase 1 development</div>
-                                            </div>
-                                        </div>
-
-                                        <span class="badge badge-light fs-8">1 hr</span>
-                                    </div>
-
-                                    <div class="d-flex flex-stack py-4">
-                                        <div class="d-flex align-items-center">
-                                            <div class="symbol symbol-35px me-4">
-                                                <span class="symbol-label bg-light-danger">
-                                                    <i class="ki-outline ki-information fs-2 text-danger"></i>
-                                                </span>
-                                            </div>
-
-                                            <div class="mb-0 me-2">
-                                                <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-bold">HR Confidential</a>
-                                                <div class="text-gray-500 fs-7">Confidential staff documents</div>
+                                            <div>
+                                                <a href="#" title="Okundu olarak işaretle" class="btn btn-secondary btn-icon notification-item" data-id="{{ $notification->id }}"><i class="ki-outline ki-check-circle text-success fs-3">
+                                                    </i></a>
                                             </div>
                                         </div>
+                                        <!--end::Item-->
+                                    @empty
+                                        <a href="#">Hiç okunmamış bildiriminiz yok</a>
+                                    @endforelse
+                                    @forelse ($notifications['read'] as $notification)
+                                            <!--begin::Item-->
+                                            <div class="bg-light rounded rounded-lg p-4 mb-2">
+                                                <!--begin::Section-->
+                                                <div class="d-flex align-items-center me-2">
+                                                    <!--begin::Title-->
+                                                    <a href="{{route('tenant.order.show',$notification->data['order_id'] ?? '#')}}"
+                                                       class="notification-item text-gray-800 text-hover-primary fw-semibold" data-id="{{ $notification->id }}">{{ $notification->data['message'] }}</a>
 
-                                        <span class="badge badge-light fs-8">2 hrs</span>
-                                    </div>
+                                                    <!--end::Title-->
+                                                </div>
+                                                <!--end::Section-->
 
-                                    <div class="d-flex flex-stack py-4">
-                                        <div class="d-flex align-items-center">
-                                            <div class="symbol symbol-35px me-4">
-                                                <span class="symbol-label bg-light-warning">
-                                                    <i class="ki-outline ki-briefcase fs-2 text-warning"></i>
-                                                </span>
+                                                <!--begin::Label-->
+                                                <span class="fs-8">{{ $notification->created_at->format('d.m.Y H:i') }}</span>
+                                                <!--end::Label-->
                                             </div>
-
-                                            <div class="mb-0 me-2">
-                                                <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-bold">Company HR</a>
-                                                <div class="text-gray-500 fs-7">Corporeate staff profiles</div>
-                                            </div>
-                                        </div>
-
-                                        <span class="badge badge-light fs-8">5 hrs</span>
-                                    </div>
-
-                                    <div class="d-flex flex-stack py-4">
-                                        <div class="d-flex align-items-center">
-                                            <div class="symbol symbol-35px me-4">
-                                                <span class="symbol-label bg-light-success">
-                                                    <i class="ki-outline ki-abstract-12 fs-2 text-success"></i>
-                                                </span>
-                                            </div>
-
-                                            <div class="mb-0 me-2">
-                                                <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-bold">Project Redux</a>
-                                                <div class="text-gray-500 fs-7">New frontend admin theme</div>
-                                            </div>
-                                        </div>
-
-                                        <span class="badge badge-light fs-8">2 days</span>
-                                    </div>
-
-                                    <div class="d-flex flex-stack py-4">
-                                        <div class="d-flex align-items-center">
-                                            <div class="symbol symbol-35px me-4">
-                                                <span class="symbol-label bg-light-primary">
-                                                    <i class="ki-outline ki-colors-square fs-2 text-primary"></i>
-                                                </span>
-                                            </div>
-
-                                            <div class="mb-0 me-2">
-                                                <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-bold">Project Breafing</a>
-                                                <div class="text-gray-500 fs-7">Product launch status update</div>
-                                            </div>
-                                        </div>
-
-                                        <span class="badge badge-light fs-8">21 Jan</span>
-                                    </div>
-
-                                    <div class="d-flex flex-stack py-4">
-                                        <div class="d-flex align-items-center">
-                                            <div class="symbol symbol-35px me-4">
-                                                <span class="symbol-label bg-light-info">
-                                                    <i class="ki-outline ki-picture fs-2 text-info"></i>
-                                                </span>
-                                            </div>
-
-                                            <div class="mb-0 me-2">
-                                                <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-bold">Banner Assets</a>
-                                                <div class="text-gray-500 fs-7">Collection of banner images</div>
-                                            </div>
-                                        </div>
-
-                                        <span class="badge badge-light fs-8">21 Jan</span>
-                                    </div>
-
-                                    <div class="d-flex flex-stack py-4">
-                                        <div class="d-flex align-items-center">
-                                            <div class="symbol symbol-35px me-4">
-                                                <span class="symbol-label bg-light-warning">
-                                                    <i class="ki-outline ki-color-swatch fs-2 text-warning"></i>
-                                                </span>
-                                            </div>
-
-                                            <div class="mb-0 me-2">
-                                                <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-bold">Icon Assets</a>
-                                                <div class="text-gray-500 fs-7">Collection of SVG icons</div>
-                                            </div>
-                                        </div>
-
-                                        <span class="badge badge-light fs-8">20 March</span>
-                                    </div>
+                                            <!--end::Item-->
+                                    @empty
+                                        <a href="#">Hiç okunmuş bildiriminiz yok</a>
+                                    @endforelse
                                 </div>
 
                                 <div class="py-3 text-center border-top">
-                                    <a href="/metronic8/demo63/pages/user-profile/activity.html" class="btn btn-color-gray-600 btn-active-color-primary">
-                                        View All
-                                        <i class="ki-outline ki-arrow-right fs-5"></i>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="tab-pane fade show active" id="kt_topbar_notifications_2" role="tabpanel">
-                                <div class="d-flex flex-column px-9">
-                                    <div class="pt-10 pb-0">
-                                        <h3 class="text-gray-900 text-center fw-bold">
-                                            Get Pro Access
-                                        </h3>
-
-                                        <div class="text-center text-gray-600 fw-semibold pt-1">
-                                            Outlines keep you honest. They stoping you from amazing poorly about drive
-                                        </div>
-
-                                        <div class="text-center mt-5 mb-9">
-                                            <a href="#" class="btn btn-sm btn-primary px-6" data-bs-toggle="modal" data-bs-target="#kt_modal_upgrade_plan">Upgrade</a>
-                                        </div>
-                                    </div>
-
-                                    <div class="text-center px-4">
-                                        <img class="mw-100 mh-200px" alt="image" src="/manage/media/illustrations/sketchy-1/1.png" />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="tab-pane fade" id="kt_topbar_notifications_3" role="tabpanel">
-                                <div class="scroll-y mh-325px my-5 px-8">
-                                    <div class="d-flex flex-stack py-4">
-                                        <div class="d-flex align-items-center me-2">
-                                            <span class="w-70px badge badge-light-success me-4">200 OK</span>
-
-                                            <a href="#" class="text-gray-800 text-hover-primary fw-semibold">New order</a>
-                                        </div>
-
-                                        <span class="badge badge-light fs-8">Just now</span>
-                                    </div>
-
-                                    <div class="d-flex flex-stack py-4">
-                                        <div class="d-flex align-items-center me-2">
-                                            <span class="w-70px badge badge-light-danger me-4">500 ERR</span>
-
-                                            <a href="#" class="text-gray-800 text-hover-primary fw-semibold">New customer</a>
-                                        </div>
-
-                                        <span class="badge badge-light fs-8">2 hrs</span>
-                                    </div>
-
-                                    <div class="d-flex flex-stack py-4">
-                                        <div class="d-flex align-items-center me-2">
-                                            <span class="w-70px badge badge-light-success me-4">200 OK</span>
-
-                                            <a href="#" class="text-gray-800 text-hover-primary fw-semibold">Payment process</a>
-                                        </div>
-
-                                        <span class="badge badge-light fs-8">5 hrs</span>
-                                    </div>
-
-                                    <div class="d-flex flex-stack py-4">
-                                        <div class="d-flex align-items-center me-2">
-                                            <span class="w-70px badge badge-light-warning me-4">300 WRN</span>
-
-                                            <a href="#" class="text-gray-800 text-hover-primary fw-semibold">Search query</a>
-                                        </div>
-
-                                        <span class="badge badge-light fs-8">2 days</span>
-                                    </div>
-
-                                    <div class="d-flex flex-stack py-4">
-                                        <div class="d-flex align-items-center me-2">
-                                            <span class="w-70px badge badge-light-success me-4">200 OK</span>
-
-                                            <a href="#" class="text-gray-800 text-hover-primary fw-semibold">API connection</a>
-                                        </div>
-
-                                        <span class="badge badge-light fs-8">1 week</span>
-                                    </div>
-
-                                    <div class="d-flex flex-stack py-4">
-                                        <div class="d-flex align-items-center me-2">
-                                            <span class="w-70px badge badge-light-success me-4">200 OK</span>
-
-                                            <a href="#" class="text-gray-800 text-hover-primary fw-semibold">Database restore</a>
-                                        </div>
-
-                                        <span class="badge badge-light fs-8">Mar 5</span>
-                                    </div>
-
-                                    <div class="d-flex flex-stack py-4">
-                                        <div class="d-flex align-items-center me-2">
-                                            <span class="w-70px badge badge-light-warning me-4">300 WRN</span>
-
-                                            <a href="#" class="text-gray-800 text-hover-primary fw-semibold">System update</a>
-                                        </div>
-
-                                        <span class="badge badge-light fs-8">May 15</span>
-                                    </div>
-
-                                    <div class="d-flex flex-stack py-4">
-                                        <div class="d-flex align-items-center me-2">
-                                            <span class="w-70px badge badge-light-warning me-4">300 WRN</span>
-
-                                            <a href="#" class="text-gray-800 text-hover-primary fw-semibold">Server OS update</a>
-                                        </div>
-
-                                        <span class="badge badge-light fs-8">Apr 3</span>
-                                    </div>
-
-                                    <div class="d-flex flex-stack py-4">
-                                        <div class="d-flex align-items-center me-2">
-                                            <span class="w-70px badge badge-light-warning me-4">300 WRN</span>
-
-                                            <a href="#" class="text-gray-800 text-hover-primary fw-semibold">API rollback</a>
-                                        </div>
-
-                                        <span class="badge badge-light fs-8">Jun 30</span>
-                                    </div>
-
-                                    <div class="d-flex flex-stack py-4">
-                                        <div class="d-flex align-items-center me-2">
-                                            <span class="w-70px badge badge-light-danger me-4">500 ERR</span>
-
-                                            <a href="#" class="text-gray-800 text-hover-primary fw-semibold">Refund process</a>
-                                        </div>
-
-                                        <span class="badge badge-light fs-8">Jul 10</span>
-                                    </div>
-
-                                    <div class="d-flex flex-stack py-4">
-                                        <div class="d-flex align-items-center me-2">
-                                            <span class="w-70px badge badge-light-danger me-4">500 ERR</span>
-
-                                            <a href="#" class="text-gray-800 text-hover-primary fw-semibold">Withdrawal process</a>
-                                        </div>
-
-                                        <span class="badge badge-light fs-8">Sep 10</span>
-                                    </div>
-
-                                    <div class="d-flex flex-stack py-4">
-                                        <div class="d-flex align-items-center me-2">
-                                            <span class="w-70px badge badge-light-danger me-4">500 ERR</span>
-
-                                            <a href="#" class="text-gray-800 text-hover-primary fw-semibold">Mail tasks</a>
-                                        </div>
-
-                                        <span class="badge badge-light fs-8">Dec 10</span>
-                                    </div>
-                                </div>
-
-                                <div class="py-3 text-center border-top">
-                                    <a href="/metronic8/demo63/pages/user-profile/activity.html" class="btn btn-color-gray-600 btn-active-color-primary">
-                                        View All
+                                    <a href="#"
+                                       class="btn btn-color-gray-600 btn-active-color-primary">
+                                        Tümünü Görüntüle
                                         <i class="ki-outline ki-arrow-right fs-5"></i>
                                     </a>
                                 </div>
@@ -856,9 +706,12 @@
                 </div>
 
                 <div class="app-navbar-item">
-                    <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-attach="parent"
-                         data-kt-menu-placement="bottom-end">
-                        <button class="btn btn-icon rounded-circle w-35px h-35px bg-light-primary border border-primary-clarity">
+                    <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
+                         data-kt-menu-attach="parent"
+                         data-kt-menu-placement="bottom-end"
+                         id="kt_menu_item_cart">
+                        <button
+                            class="btn btn-icon rounded-circle w-35px h-35px bg-light-primary border border-primary-clarity">
                             <i class="ki-outline ki-basket text-primary fs-3"></i>
                             {{--@if(!empty(Auth::user()->sepet))
                                 ({{Auth::user()->sepet->urun_sayisi() ?? "0"}} Ürün)
@@ -912,8 +765,9 @@
                                                                 </div>
                                                                 <div class="col-4">
                                                                     <a href="{{route('tenant.basket.view')}}">
-                                                                        <img src="{{ $basketProduct->product->getImage() ?? ""}}"
-                                                                             class="w-50px ms-n1" alt="user">
+                                                                        <img
+                                                                            src="{{ $basketProduct->product->getImage() ?? ""}}"
+                                                                            class="w-50px ms-n1" alt="user">
                                                                     </a>
                                                                 </div>
                                                                 <div class="col-8">
@@ -928,7 +782,7 @@
                                                         </div>
                                                     </div>
                                                 @endforeach
-                                                <a href="{{route('tenant.basket.view')}}"
+                                                <a onclick="window.location.href='{{route('tenant.basket.view')}}'" href="{{route('tenant.basket.view')}}"
                                                    class="btn btn-sm btn-primary align-items-center w-100 mt-5">
                                                     <i class="ki-outline ki-basket text-white fs-6"></i>
                                                     Sipariş Oluştur
@@ -1180,29 +1034,39 @@
                 --}}
 
                 <div class="app-navbar-item ms-lg-5" id="kt_header_user_menu_toggle">
-                    <div class="d-flex align-items-center" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
+                    <div class="d-flex align-items-center" data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
+                         data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
                         <div class="text-end d-none d-sm-flex flex-column justify-content-center me-3">
-                            <span class="#" class="text-gray-500 fs-8 fw-bold">{!! auth()->user()->printDealerStatusBadge() !!}</span>
-                            <a href="#" class="text-gray-800 text-hover-primary fs-7 fw-bold d-block">{{Str::limit(auth()->user()->name ?? '#',12)}}</a>
+                            <span class="#"
+                                  class="text-gray-500 fs-8 fw-bold">{!! auth()->user()->printDealerStatusBadge() !!}</span>
+                            <a href="#"
+                               class="text-gray-800 text-hover-primary fs-7 fw-bold d-block">{{Str::limit(auth()->user()->name ?? '#',12)}}</a>
                         </div>
 
                         <div class="cursor-pointer symbol symbol symbol-circle symbol-35px symbol-md-40px">
-                            <img class src="/manage/media/avatars/300-3.jpg" alt="user" />
-                            <div class="position-absolute translate-middle bottom-0 mb-1 start-100 ms-n1 bg-success rounded-circle h-8px w-8px"></div>
+                            <img class src="/manage/media/avatars/300-3.jpg" alt="user"/>
+                            <div
+                                class="position-absolute translate-middle bottom-0 mb-1 start-100 ms-n1 bg-success rounded-circle h-8px w-8px"></div>
                         </div>
                     </div>
 
-                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-color fw-semibold py-4 fs-6 w-275px" data-kt-menu="true">
+                    <div
+                        class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-color fw-semibold py-4 fs-6 w-275px"
+                        data-kt-menu="true">
                         <div class="menu-item px-3">
                             <div class="menu-content d-flex align-items-center px-3">
                                 <div class="symbol symbol-50px me-5">
-                                    <img alt="Logo" src="/manage/media/avatars/300-3.jpg" />
+                                    <img alt="Logo" src="/manage/media/avatars/300-3.jpg"/>
                                 </div>
 
                                 <div class="d-flex flex-column">
-                                    <div class="fw-bold d-flex align-items-center fs-5">{{Str::limit(auth()->user()->name ?? '#',16)}} <span class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2">Pro</span></div>
+                                    <div
+                                        class="fw-bold d-flex align-items-center fs-5">{{Str::limit(auth()->user()->name ?? '#',16)}}
+                                        <span class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2">Pro</span>
+                                    </div>
 
-                                    <a href="#" class="fw-semibold text-muted text-hover-primary fs-7"> {{Str::limit(auth()->user()->email ?? '#',20)}} </a>
+                                    <a href="#"
+                                       class="fw-semibold text-muted text-hover-primary fs-7"> {{Str::limit(auth()->user()->email ?? '#',20)}} </a>
                                 </div>
                             </div>
                         </div>
@@ -1226,7 +1090,8 @@
                             </a>
                         </div>
 
-                        <div class="menu-item px-5" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="left-start" data-kt-menu-offset="-15px, 0">
+                        <div class="menu-item px-5" data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
+                             data-kt-menu-placement="left-start" data-kt-menu-offset="-15px, 0">
                             <a href="#" class="menu-link px-5">
                                 <span class="menu-title">Abonelik Bilgilerim</span>
                                 <span class="menu-arrow"></span>
@@ -1257,12 +1122,15 @@
 
                         <div class="separator my-2"></div>
 
-                        <div class="menu-item px-5" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="left-start" data-kt-menu-offset="-15px, 0">
+                        <div class="menu-item px-5" data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
+                             data-kt-menu-placement="left-start" data-kt-menu-offset="-15px, 0">
                             <a href="#" class="menu-link px-5">
                                 <span class="menu-title position-relative">
                                     Mode
 
-                                    <span class="ms-5 position-absolute translate-middle-y top-50 end-0"> <i class="ki-outline ki-night-day theme-light-show fs-2"></i> <i class="ki-outline ki-moon theme-dark-show fs-2"></i> </span>
+                                    <span class="ms-5 position-absolute translate-middle-y top-50 end-0"> <i
+                                            class="ki-outline ki-night-day theme-light-show fs-2"></i> <i
+                                            class="ki-outline ki-moon theme-dark-show fs-2"></i> </span>
                                 </span>
                             </a>
 
@@ -1272,8 +1140,10 @@
                                 data-kt-element="theme-mode-menu"
                             >
                                 <div class="menu-item px-3 my-0">
-                                    <a href="#" class="menu-link px-3 py-2" data-kt-element="mode" data-kt-value="light">
-                                        <span class="menu-icon" data-kt-element="icon"> <i class="ki-outline ki-night-day fs-2"></i> </span>
+                                    <a href="#" class="menu-link px-3 py-2" data-kt-element="mode"
+                                       data-kt-value="light">
+                                        <span class="menu-icon" data-kt-element="icon"> <i
+                                                class="ki-outline ki-night-day fs-2"></i> </span>
                                         <span class="menu-title">
                                             Açık
                                         </span>
@@ -1282,7 +1152,8 @@
 
                                 <div class="menu-item px-3 my-0">
                                     <a href="#" class="menu-link px-3 py-2" data-kt-element="mode" data-kt-value="dark">
-                                        <span class="menu-icon" data-kt-element="icon"> <i class="ki-outline ki-moon fs-2"></i> </span>
+                                        <span class="menu-icon" data-kt-element="icon"> <i
+                                                class="ki-outline ki-moon fs-2"></i> </span>
                                         <span class="menu-title">
                                             Koyu
                                         </span>
@@ -1290,8 +1161,10 @@
                                 </div>
 
                                 <div class="menu-item px-3 my-0">
-                                    <a href="#" class="menu-link px-3 py-2" data-kt-element="mode" data-kt-value="system">
-                                        <span class="menu-icon" data-kt-element="icon"> <i class="ki-outline ki-screen fs-2"></i> </span>
+                                    <a href="#" class="menu-link px-3 py-2" data-kt-element="mode"
+                                       data-kt-value="system">
+                                        <span class="menu-icon" data-kt-element="icon"> <i
+                                                class="ki-outline ki-screen fs-2"></i> </span>
                                         <span class="menu-title">
                                             Sistem Teması
                                         </span>
@@ -1378,3 +1251,59 @@
         </div>
     </div>
 </div>
+
+@push('script')
+    <script>
+        $(document).ready(function() {
+            $('.notification-item').on('click', function(e) {
+                e.preventDefault();
+                blockPage();
+                var notificationId = $(this).data('id');
+
+                $.ajax({
+                    url: '{{ route('tenant.notifications.read') }}',
+                    method: 'POST',
+                    data: {
+                        _token: '{{ csrf_token() }}',
+                        id: notificationId
+                    },
+                    success: function(response) {
+                        console.log('Bildirim içeriği', response);
+                        unblockPage();
+                        if (response.code === 88) {
+                            Notification('success', response.message, 4000, true, false);
+                            setTimeout(function () {
+                                location.reload();
+                            }, 500);
+                            return;
+                        }
+                        response.code === 1 || response.code === 88 ? Notification('success', response.message, 4000, true, false) : Notification('error', response.message, 4000, true, false);
+                    },
+                    error: function(response) {
+                        unblockPage();
+                        console.error('Bildirim okunamadı', response);
+                        if (response.status === 403) {
+                            Notification('error', "Bu işlem için yetkiniz bulunmamaktadır.", 4000, true, false);
+                            return false;
+                        }
+                        if (response.responseJSON) {
+                            if (response.responseJSON.msg) {
+                                Notification('error', response.responseJSON.msg, 4000, true, false);
+                            } else if (response.responseJSON.errors) {
+                                var errors = response.responseJSON.errors;
+                                $.each(errors, function(key, value) {
+                                    Notification('error', value[0], 4000, true, false);
+                                });
+                            } else {
+                                Notification('error', response.responseJSON.message, 4000, true, false);
+                            }
+                        } else {
+                            Notification('error', "Bilinmeyen bir hata oluştu.", 4000, true, false);
+                        }
+
+                    }
+                });
+            });
+        });
+    </script>
+@endpush

@@ -8,7 +8,11 @@ use App\Interfaces\OrderRepositoryInterface;
 use App\Interfaces\ProductRepositoryInterface;
 use App\Models\Order;
 use App\Models\OrderProduct;
+use App\Models\Transaction;
+use App\Models\User;
+use App\Notifications\OrderCreatedNotification;
 use App\OrderStatus;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Throwable;
@@ -23,6 +27,14 @@ class OrderService implements OrderRepositoryInterface
         $this->basketService = $basketService;
         $this->geozoneService = $geozoneService;
         $this->productService = $productService;
+    }
+    public function getOrderById(int $id)
+    {
+        return Order::find($id);
+    }
+    public function fetchOrdersByStatus(int $status): Collection
+    {
+        return Order::where('status', $status)->with('dealer','user')->get();
     }
     /**
      * @throws Throwable
@@ -95,12 +107,13 @@ class OrderService implements OrderRepositoryInterface
                             'status' => 500
                         ];
                     }
-                    $op = OrderProduct::create([
+                    $order_product = OrderProduct::create([
                         'order_id' => $order->id,
                         'product_id' => $product->id,
                         'piece' => $basket_product->piece,
                         'name' => $product->name ?? '#',
                         'image' => $product->image ?? '#',
+                        'images' => $basket_product->images,
                         'price' => $basket_product->price,
                         'dealer_sales_price' => $basket_product->price,
                         'total_sales_price' => $basket_product->getSubTotal(),
@@ -109,7 +122,7 @@ class OrderService implements OrderRepositoryInterface
                         'description' => $basket_product->description ?? '',
                         'product_note' => $basket_product->order_note ?? '',
                     ]);
-                    if($op){
+                    if($order_product){
                         if(!$this->productService->decreaseProductStock($product->id, $basket_product->piece)){
                             return [
                                 'code' => 110003,
@@ -119,7 +132,23 @@ class OrderService implements OrderRepositoryInterface
                         }
                     }
                 }
+                Transaction::createAndApply($order->id, -$order->total, $order->order_no . ' nolu siparişe ait ücret işlendi.');
             }
+            // Send Notifications to Staff
+            if (settings('order_send_admin_notification')) {
+                $admins = User::role('admin')->get();
+                foreach ($admins as $admin) {
+                    $admin->notify(new OrderCreatedNotification($order));
+                }
+            }
+
+            if (settings('order_send_personnel_notification')) {
+                $personnels = User::role('personel')->get();
+                foreach ($personnels as $personnel) {
+                    $personnel->notify(new OrderCreatedNotification($order));
+                }
+            }
+
             // Clear basket after order
             $this->basketService->clearAuthUserBasket();
             DB::commit();

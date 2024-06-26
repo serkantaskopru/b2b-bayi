@@ -18,6 +18,7 @@
                         <tr>
                             <th>id</th>
                             <th>Bayi Adı</th>
+                            <th>Bakiye</th>
                             <th>Grup</th>
                             <th>Email</th>
                             <th>Telefon</th>
@@ -82,6 +83,11 @@
                     data: "name",
                     render: function(data, type, row, meta){
                         return row.name ?? '#';
+                    }
+                },{
+                    data: "balance",
+                    render: function(data, type, row, meta){
+                        return row.balance ? row.balance + ' TL' : '#';
                     }
                 },{
                     data: "grup",

@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('email', 128)->nullable();
             $table->string('phone', 16)->nullable();
             $table->tinyInteger('status')->nullable();
+            $table->decimal('balance', 8, 2)->nullable()->default(0);
             $table->timestamps();
         });
     }

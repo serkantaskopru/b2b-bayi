@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('piece')->nullable()->default(1);
             $table->string('name', 1024)->nullable();
             $table->string('image', 1024)->nullable();
+            $table->json('images')->nullable();
             $table->decimal('price', 8, 2);
             $table->decimal('dealer_sales_price', 8, 2);
             $table->decimal('total_sales_price', 8, 2);

@@ -13,6 +13,7 @@ class Dealer extends Model
         'user_id',
         'dealer_group_id',
         'name',
+        'balance',
         'payment_date',
         'tax_office',
         'tax_number',
@@ -44,5 +45,11 @@ class Dealer extends Model
         if(!empty($this->group))
             return (int)$this->group->discount;
         return 0;
+    }
+
+    public function updateBalance($amount): void
+    {
+        $this->balance += $amount;
+        $this->save();
     }
 }
